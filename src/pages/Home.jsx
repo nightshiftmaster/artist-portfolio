@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { ScrollSmoother } from "my-vlad-scroll";
 import { gsap } from "gsap";
 import { videoItems } from "../assets/constants";
 import VideoCard from "../components/VideoCard";
