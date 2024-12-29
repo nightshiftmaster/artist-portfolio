@@ -79,6 +79,15 @@ html {
   overflow-x: hidden;
 }
 
+.wrapper {
+  position: relative;
+}
+
+.content {
+  position: relative;
+  will-change: transform;
+}
+
 .hero {
   width: calc(var(--index) * 60);
   position: absolute;
