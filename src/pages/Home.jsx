@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap-trial/ScrollSmoother";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { gsap } from "gsap";
 import { videoItems } from "../assets/constants";
 import VideoCard from "../components/VideoCard";
@@ -39,8 +39,8 @@ const Home = () => {
           {
             x: 0,
             opacity: 4,
-            start: "-850",
-            end: "-100",
+            // start: "-850",
+            // end: "-100",
             scrollTrigger: { trigger: item, scrub: true },
           }
         );
@@ -64,8 +64,8 @@ const Home = () => {
           {
             x: 0,
             opacity: 4,
-            start: "-850",
-            end: "-100",
+            // start: "-850",
+            // end: "-100",
             scrollTrigger: { trigger: item, scrub: true },
           }
         );
