@@ -32,7 +32,27 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
       },
     });
 
+    const mobileMain = new Swiper(".slider_mobile", {
+      modules: [Parallax, Mousewheel, Controller],
+      freeMode: true,
+
+      parallax: true,
+      // mousewheel: true,
+      controller: { control: sliderBg },
+    });
+
     sliderMain.on("slideChange", function () {
+      //   console.log(sliderMain.activeIndex);
+      setActiveIndex(null);
+
+      if (typeof setIndex === "undefined") {
+        return;
+      } else {
+        setIndex(sliderMain.activeIndex);
+      }
+    });
+
+    mobileMain.on("slideChange", function () {
       //   console.log(sliderMain.activeIndex);
       setActiveIndex(null);
 

@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="about_container ">
+    <div className="about_container">
       <h1 className="text-block__h tracking-in-expand ">About Me</h1>
       <p className="text-block__p fade-in">
         My name is Vlad Medvedev, and I was born in Ukraine. From an early age,
