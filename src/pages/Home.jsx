@@ -38,7 +38,7 @@ const Home = () => {
         item,
         { x: -100, opacity: 0 },
         {
-          x: -70,
+          x: -30,
           opacity: 4,
           // start: "-850",
           // end: "-100",
