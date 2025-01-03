@@ -38,7 +38,7 @@ const Home = () => {
         item,
         { x: -100, opacity: 0 },
         {
-          x: 0,
+          x: -70,
           opacity: 4,
           // start: "-850",
           // end: "-100",
@@ -47,9 +47,9 @@ const Home = () => {
       );
       gsap.fromTo(
         item,
-        { opacity: 4 },
+        { opacity: 0 },
         {
-          opacity: 0,
+          opacity: 4,
           scrollTrigger: {
             trigger: item,
             scrub: true,

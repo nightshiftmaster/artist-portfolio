@@ -167,7 +167,7 @@ html {
 .gallery {
   display: flex;
   padding: calc(var(--index) * 5) 0;
-  gap: calc(var(--index) * 3);
+  gap: calc(var(--index) * 2);
 }
 
 .gallery-mobile {
