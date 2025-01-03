@@ -31,6 +31,33 @@ const Home = () => {
 
     const itemsRight = gsap.utils.toArray(".gallery__right .gallery__item");
 
+    const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
+
+    allItems.forEach((item) => {
+      gsap.fromTo(
+        item,
+        { x: -100, opacity: 0 },
+        {
+          x: 0,
+          opacity: 4,
+          // start: "-850",
+          // end: "-100",
+          scrollTrigger: { trigger: item, scrub: true },
+        }
+      );
+      gsap.fromTo(
+        item,
+        { opacity: 4 },
+        {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: item,
+            scrub: true,
+          },
+        }
+      );
+    });
+
     itemsLeft.forEach((item) => {
       gsap.fromTo(
         item,
@@ -100,6 +127,11 @@ const Home = () => {
               })}
             </div>
           </main>
+          <div className="gallery-mobile">
+            {videoItems.map((item, i) => {
+              return <VideoCard key={i} item={item} />;
+            })}
+          </div>
         </div>
       </div>
     </div>

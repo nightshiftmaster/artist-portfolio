@@ -23,7 +23,9 @@ const Navbar = () => {
           );
         })}
       </ul>
-      <Socials />
+      <div className="socials-nav">
+        <Socials />
+      </div>
     </div>
   );
 };

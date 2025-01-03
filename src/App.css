@@ -88,12 +88,19 @@ html {
   will-change: transform;
 }
 
+/* .hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+} */
+
 .hero {
   width: calc(var(--index) * 60);
   position: absolute;
   top: 22vh;
   left: 35vw;
-
   z-index: -1;
 }
 
@@ -149,7 +156,8 @@ html {
 }
 
 .main-slogan {
-  font-size: calc(var(--index) * 3);
+  font-size: calc(var(--index) * 2.5);
+  white-space: nowrap;
   position: absolute;
   font-family: mrDafoe-font;
   bottom: 20vh;
@@ -159,12 +167,14 @@ html {
 .gallery {
   display: flex;
   padding: calc(var(--index) * 5) 0;
-
   gap: calc(var(--index) * 3);
 }
 
+.gallery-mobile {
+  display: none;
+}
+
 .gallery > * {
-  flex: 1;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -179,6 +189,16 @@ html {
   margin-bottom: var(--gallery-gap);
 }
 
+.video {
+  height: 90%;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.video-description {
+  margin-bottom: 20px;
+}
+
 .gallery__left {
   margin-top: calc(var(--index) * 5);
 }
@@ -189,8 +209,8 @@ html {
 }
 
 .text-block__h {
-  font-size: 2rem;
-  line-height: 2.5rem;
+  font-size: calc(var(--index) * 1.5);
+
   color: var(--color-header);
   margin-bottom: 1.5rem;
 }
@@ -211,6 +231,7 @@ html {
   backdrop-filter: brightness(80%);
   border-radius: 10px;
 }
+
 @keyframes textGlow {
   0% {
     text-shadow: 1px 1px 10px rgba(238, 228, 218, 0.3); /* Едва заметное свечение */
@@ -227,16 +248,14 @@ html {
 
 .nav-container {
   width: 60%;
-  gap: 12vh;
+  gap: calc(var(--index) * 4);
   align-items: center;
   animation: textGlow 1.5s ease-in-out infinite;
   list-style: none;
   font-size: calc(var(--index));
-
   display: flex;
   flex-direction: row;
   /* gap: calc(var(--gallery-gap) / 2); */
-
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
@@ -400,6 +419,48 @@ p {
 .social-icon {
   width: 33px;
   height: 33px;
+}
+
+@media only screen and (max-width: 950px) {
+  .socials-nav {
+    display: none;
+  }
+
+  .nav-container {
+    justify-content: center;
+    width: 100%;
+  }
+  .hero {
+    width: calc(var(--index) * 50);
+    position: absolute;
+    top: 16vh;
+    left: -15vw;
+    z-index: -1;
+  }
+  .main-title {
+    font-size: calc(var(--index) * 7);
+    position: absolute;
+    width: min-content;
+    bottom: 30vh;
+    left: calc(var(--index) * 3);
+  }
+
+  .main-slogan {
+    font-size: calc(var(--index) * 2);
+    bottom: 20vh;
+    left: 10vh;
+  }
+  .gallery-mobile {
+    display: flex;
+    flex-direction: column;
+
+    padding: calc(var(--index) * 5) 0;
+    gap: calc(var(--index) * 5);
+  }
+
+  .gallery {
+    display: none;
+  }
 }
 
 .contact-container {
