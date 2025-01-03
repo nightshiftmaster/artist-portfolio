@@ -461,7 +461,7 @@ p {
 
   .text-block__p {
     line-height: calc(var(--index) * 2);
-    font-size: calc(var(--index) * 1.2);
+    font-size: calc(var(--index));
   }
 
   .socials-nav {
@@ -470,7 +470,7 @@ p {
 
   .gallery__item {
     display: flex;
-    height: 50vh;
+    height: 60vh;
     width: max-content;
     flex-direction: column;
     max-width: calc(var(--index) * 30);
