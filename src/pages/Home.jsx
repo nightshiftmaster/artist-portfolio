@@ -47,9 +47,9 @@ const Home = () => {
       );
       gsap.fromTo(
         item,
-        { opacity: 0 },
+        { opacity: 4 },
         {
-          opacity: 4,
+          opacity: 0,
           scrollTrigger: {
             trigger: item,
             scrub: true,

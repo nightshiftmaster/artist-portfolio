@@ -223,6 +223,7 @@ html {
 .text-block__p {
   line-height: calc(var(--index) * 1.2);
   font-size: calc(var(--index) * 0.7);
+  opacity: 0.8;
 }
 
 .nav {
@@ -234,7 +235,7 @@ html {
   position: fixed;
   z-index: 3;
   background: fixed;
-  backdrop-filter: brightness(80%);
+  backdrop-filter: brightness(60%) blur(2px);
   border-radius: 10px;
 }
 
@@ -431,7 +432,59 @@ p {
   display: none;
 }
 
+.contact-container {
+  width: 100vw;
+  height: 100vh;
+}
+.contact {
+  display: flex;
+  gap: 5vh;
+  width: 50vh;
+}
+
+.contact-header {
+  font-family: raleway-m;
+  font-size: calc(var(--index) * 3);
+  text-align: center;
+  width: 100vw;
+  margin-top: 20vh;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  padding: 10vh;
+  width: fit-content;
+}
+
+.contact-item {
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+  align-items: center;
+  width: 100vw;
+}
+
+.contacts-block {
+  margin-top: 15vh;
+  margin-left: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
 @media only screen and (max-width: 950px) {
+  .contacts-block {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
   .opened {
     z-index: 2;
     transform: scale(1.45);
@@ -486,6 +539,7 @@ p {
   .nav-container {
     justify-content: center;
     width: 100%;
+    font-size: calc(var(--index) * 1.2);
   }
   .hero {
     width: calc(var(--index) * 50);
@@ -518,27 +572,6 @@ p {
   .gallery {
     display: none;
   }
-}
-
-.contact-container {
-  padding: 10vh 15vh;
-  margin-top: 15vh;
-  display: flex;
-  flex-direction: column;
-  gap: 5vh;
-}
-
-.contact-item {
-  display: flex;
-  gap: 10px;
-  justify-content: start;
-  align-items: center;
-  width: 100vw;
-}
-
-a {
-  text-decoration: none;
-  color: white;
 }
 
 /* animations */
