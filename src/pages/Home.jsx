@@ -4,9 +4,11 @@ import { ScrollSmoother } from "my-vlad-scroll";
 import { gsap } from "gsap";
 import { videoItems } from "../assets/constants";
 import VideoCard from "../components/VideoCard";
+import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 const Home = () => {
+  const { t } = useTranslation();
   useEffect(() => {
     ScrollSmoother.create({
       wrapper: ".wrapper",
@@ -50,6 +52,8 @@ const Home = () => {
         { opacity: 4 },
         {
           opacity: 0,
+          // start: "-850",
+          // end: "-100",
           scrollTrigger: {
             trigger: item,
             scrub: true,
@@ -99,7 +103,7 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <header className="hero-section">
+      <header className="hero-section fade-in">
         <img
           data-speed=".6"
           className="hero"
@@ -108,8 +112,10 @@ const Home = () => {
         />
         <div className="container fade-in">
           <div data-speed=".75" className="main-header">
-            <h1 className="main-title">Vlad Violin</h1>
-            <p className="main-slogan puff-in-center">Its all about music</p>
+            <h1 className="main-title">{t("headers.home_header")}</h1>
+            <p className="main-slogan puff-in-center">
+              {t("paragraphs.home_paragraph")}
+            </p>
           </div>
         </div>
       </header>
@@ -118,12 +124,12 @@ const Home = () => {
           <main className="gallery">
             <div data-speed=".9" className="gallery__left">
               {videoItems.slice(0, 3).map((item, i) => {
-                return <VideoCard key={i} item={item} />;
+                return <VideoCard key={i} item={item} index={i} />;
               })}
             </div>
             <div data-speed="1.1" className="gallery__right">
               {videoItems.slice(3, 6).map((item, i) => {
-                return <VideoCard key={i} item={item} />;
+                return <VideoCard key={i} item={item} index={i} />;
               })}
             </div>
           </main>

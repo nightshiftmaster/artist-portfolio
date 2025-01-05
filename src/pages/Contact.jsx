@@ -1,11 +1,14 @@
 import { CgPhone } from "react-icons/cg";
 import { MdEmail } from "react-icons/md";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="contact-container">
       <h1 className="text-block__h contact-header tracking-in-expand ">
-        Let's keep in touch
+        {t("headers.contact_header")}
       </h1>
       <div className="contacts-block fade-in">
         <div className="contact">
@@ -29,7 +32,7 @@ const Contact = () => {
               />
 
               <a className="text-block__p" href="https://wa.me/972547355910">
-                send message
+                {t("paragraphs.contact_message_paragraph")}
               </a>
             </div>
           </div>
