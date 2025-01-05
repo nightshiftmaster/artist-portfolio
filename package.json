@@ -6,6 +6,7 @@
     "@gsap/react": "^2.1.1",
     "animate.css": "^4.1.1",
     "cra-template": "1.2.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
     "gsap": "^3.12.5",
     "i18next": "^24.2.0",
     "locomotive-scroll": "^4.1.4",
