@@ -29,9 +29,8 @@ const Navbar = () => {
 
       <div className="socials-nav">
         <Socials />
-
-        <LanguageSelect />
       </div>
+      <LanguageSelect />
     </div>
   );
 };

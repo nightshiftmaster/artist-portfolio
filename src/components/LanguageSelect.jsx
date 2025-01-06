@@ -8,55 +8,23 @@ const LanguageSelect = () => {
   const [lang, setLang] = useState("EN");
   return (
     <div>
-      <div
-        style={{ display: "flex", alignItems: "center", gap: "13px" }}
-        onClick={() => setOpen(!isOpen)}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "3px",
-            cursor: "pointer",
-          }}
-        >
-          <CiGlobe size={30} />
+      <div className="language-container" onClick={() => setOpen(!isOpen)}>
+        <div className="language-selector">
+          <CiGlobe className="responsive-icon" />
           <FaCaretDown />
         </div>
-        {lang === "EN" ? (
-          <img
-            className="national-flag"
-            onClick={() => {
-              setOpen(false);
-              setLang("EN");
-              i18next.changeLanguage("en");
-            }}
-            src="./flags-icons/united-kingdom.png"
-            alt=""
-          />
-        ) : (
-          <img
-            className="national-flag"
-            src="./flags-icons/israel.png"
-            alt=""
-            onClick={() => {
-              setOpen(false);
-              setLang("HEB");
-              i18next.changeLanguage("heb");
-            }}
-          />
-        )}
+
+        <img
+          className="national-flag current"
+          src={
+            lang === "EN"
+              ? "./flags-icons/united-kingdom.png"
+              : "./flags-icons/israel.png"
+          }
+          alt=""
+        />
       </div>
-      <div
-        style={{
-          display: isOpen ? "flex" : "none",
-          position: "absolute",
-          backgroundColor: "gray",
-          borderRadius: "8px",
-          padding: "10px",
-          right: "20px",
-        }}
-      >
+      <div className={`language-list-window ${isOpen ? "open" : ""}`}>
         <div
           style={{
             display: "flex",
@@ -64,30 +32,34 @@ const LanguageSelect = () => {
             gap: "10px",
           }}
         >
-          <div style={{ display: "flex", gap: "10px" }}>
+          <div
+            className="flag-list-item"
+            onClick={() => {
+              setOpen(false);
+              setLang("EN");
+              i18next.changeLanguage("en");
+            }}
+          >
             <img
               className="national-flag"
-              onClick={() => {
-                setOpen(false);
-                setLang("EN");
-                i18next.changeLanguage("en");
-              }}
               src="./flags-icons/united-kingdom.png"
               alt=""
             />
             <p>English</p>
           </div>
 
-          <div style={{ display: "flex", gap: "10px" }}>
+          <div
+            className="flag-list-item"
+            onClick={() => {
+              setOpen(false);
+              setLang("HEB");
+              i18next.changeLanguage("heb");
+            }}
+          >
             <img
               className="national-flag"
               src="./flags-icons/israel.png"
               alt=""
-              onClick={() => {
-                setOpen(false);
-                setLang("HEB");
-                i18next.changeLanguage("heb");
-              }}
             />
             <p>עברית</p>
           </div>
