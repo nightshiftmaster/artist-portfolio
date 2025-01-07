@@ -14,7 +14,7 @@ const VideoCard = ({ item }) => {
           className="video-file"
           scrolling="no"
           frameBorder="0"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
           script-src="none"
         ></iframe>
       </div>
