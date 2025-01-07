@@ -1,6 +1,7 @@
 import { Swiper } from "swiper";
 // import "swiper/css";
-// import "swiper/css/pagination";
+import "swiper/css/pagination";
+import "swiper/less/pagination";
 import { useEffect, useRef, useState } from "react";
 import { Controller, Mousewheel, Parallax, Pagination } from "swiper/modules";
 
@@ -16,7 +17,11 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
       slidesPerView: 3.5,
     });
     const sliderMain = new Swiper(".slider_main", {
-      modules: [Parallax, Mousewheel, Controller],
+      modules: [Parallax, Mousewheel, Controller, Pagination],
+      pagination: {
+        el: ".swiper-pagination",
+        type: "bullets",
+      },
       freeMode: true,
       centeredSlides: true,
       parallax: true,
@@ -35,9 +40,10 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
     });
 
     const mobileMain = new Swiper(".slider_mobile", {
-      modules: [Mousewheel, Controller, Pagination],
+      modules: [Mousewheel, Controller, Parallax, Pagination],
       pagination: {
-        type: "progressbar",
+        el: ".swiper-pagination",
+        type: "bullets",
       },
       freeMode: true,
       parallax: true,
@@ -73,42 +79,43 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
   }, [setIndex]);
 
   return (
-    <>
-      <div className={`swiper slider ${mainClass}`} ref={swiperRef}>
-        <div className="swiper-wrapper slider__wrapper">
-          {items.map((item, i) => {
-            return (
+    <div className={`swiper slider ${mainClass}`} ref={swiperRef}>
+      <div className="swiper-wrapper slider__wrapper">
+        {items.map((item, i) => {
+          return (
+            <div
+              key={i}
+              className={`swiper-slide slider__item ${
+                activeIndex === i ? "opened" : ""
+              }`}
+              onClick={() => {
+                setActiveIndex((prev) => {
+                  if (prev === i) {
+                    prev = null;
+                    return prev;
+                  } else {
+                    prev = i;
+                    return prev;
+                  }
+                });
+              }}
+            >
               <div
-                key={i}
-                className={`swiper-slide slider__item ${
-                  activeIndex === i ? "opened" : ""
-                }`}
-                onClick={() => {
-                  setActiveIndex((prev) => {
-                    if (prev === i) {
-                      prev = null;
-                      return prev;
-                    } else {
-                      prev = i;
-                      return prev;
-                    }
-                  });
+                className="slider__img"
+                data-swiper-parallax={i % 2 === 0 ? "20%" : "30%"}
+                style={{
+                  backgroundImage: `url(${item})`,
                 }}
-              >
-                <div
-                  className="slider__img"
-                  data-swiper-parallax={i % 2 === 0 ? "20%" : "30%"}
-                  style={{
-                    backgroundImage: `url(${item})`,
-                  }}
-                ></div>
-              </div>
-            );
-          })}
-        </div>
-        <div className="swiper-pagination"></div>
+              ></div>
+            </div>
+          );
+        })}
       </div>
-    </>
+      {/* <div
+        className="swiper-pagination"
+        style={{ backgroundColor: "white" }}
+      ></div> */}
+    </div>
   );
 };
 

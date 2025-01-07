@@ -294,7 +294,7 @@ html {
 
 .photo-gallery {
   font-family: raleway-m, sans-serif;
-  height: 100vh;
+  height: 100%;
 }
 
 .swiper-container {
@@ -314,7 +314,7 @@ html {
 
 .slider__wrapper {
   width: fit-content;
-  height: calc(var(--index) * 20);
+  height: calc(var(--index) * 23);
   display: flex;
   transition: var(--transition) !important;
   will-change: transform;
@@ -603,13 +603,14 @@ a {
   .gallery-mobile {
     display: flex;
     margin-top: -10vh;
+    height: 100vh;
   }
 
   .gallery-desktop {
     display: none;
   }
   .slider__item {
-    height: 100%;
+    height: 115%;
     margin-right: 5px;
   }
   .slider_mobile {
@@ -625,7 +626,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: calc(var(--index) * 2);
+    padding: calc(var(--index) * 3);
     gap: calc(var(--gallery-gap) * 0.6);
   }
 
