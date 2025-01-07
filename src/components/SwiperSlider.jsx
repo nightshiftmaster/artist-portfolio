@@ -1,7 +1,7 @@
 import { Swiper } from "swiper";
 // import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/less/pagination";
+// import "swiper/css/pagination";
+// import "swiper/less/pagination";
 import { useEffect, useRef, useState } from "react";
 import { Controller, Mousewheel, Parallax, Pagination } from "swiper/modules";
 
