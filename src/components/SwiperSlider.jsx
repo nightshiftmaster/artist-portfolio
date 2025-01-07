@@ -1,6 +1,8 @@
 import { Swiper } from "swiper";
+// import "swiper/css";
+// import "swiper/css/pagination";
 import { useEffect, useRef, useState } from "react";
-import { Controller, Mousewheel, Parallax } from "swiper/modules";
+import { Controller, Mousewheel, Parallax, Pagination } from "swiper/modules";
 
 const SwiperSlider = ({ setIndex, mainClass, items }) => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -33,9 +35,11 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
     });
 
     const mobileMain = new Swiper(".slider_mobile", {
-      modules: [Parallax, Mousewheel, Controller],
+      modules: [Mousewheel, Controller, Pagination],
+      pagination: {
+        type: "progressbar",
+      },
       freeMode: true,
-
       parallax: true,
       // mousewheel: true,
       controller: { control: sliderBg },
@@ -69,39 +73,42 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
   }, [setIndex]);
 
   return (
-    <div className={`swiper slider ${mainClass}`} ref={swiperRef}>
-      <div className="swiper-wrapper slider__wrapper">
-        {items.map((item, i) => {
-          return (
-            <div
-              key={i}
-              className={`swiper-slide slider__item ${
-                activeIndex === i ? "opened" : ""
-              }`}
-              onClick={() => {
-                setActiveIndex((prev) => {
-                  if (prev === i) {
-                    prev = null;
-                    return prev;
-                  } else {
-                    prev = i;
-                    return prev;
-                  }
-                });
-              }}
-            >
+    <>
+      <div className={`swiper slider ${mainClass}`} ref={swiperRef}>
+        <div className="swiper-wrapper slider__wrapper">
+          {items.map((item, i) => {
+            return (
               <div
-                className="slider__img"
-                data-swiper-parallax={i % 2 === 0 ? "20%" : "30%"}
-                style={{
-                  backgroundImage: `url(${item})`,
+                key={i}
+                className={`swiper-slide slider__item ${
+                  activeIndex === i ? "opened" : ""
+                }`}
+                onClick={() => {
+                  setActiveIndex((prev) => {
+                    if (prev === i) {
+                      prev = null;
+                      return prev;
+                    } else {
+                      prev = i;
+                      return prev;
+                    }
+                  });
                 }}
-              ></div>
-            </div>
-          );
-        })}
+              >
+                <div
+                  className="slider__img"
+                  data-swiper-parallax={i % 2 === 0 ? "20%" : "30%"}
+                  style={{
+                    backgroundImage: `url(${item})`,
+                  }}
+                ></div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="swiper-pagination"></div>
       </div>
-    </div>
+    </>
   );
 };
 

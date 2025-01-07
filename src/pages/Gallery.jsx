@@ -23,14 +23,13 @@ const Gallery = () => {
             {t(`paragraphs.gallery_paragraph`)}
           </p>
         </div>
-        <div>
-          <SwiperSlider
-            setIndex={setIndex}
-            mainClass="slider_mobile"
-            items={items}
-          />
-          <SwiperSlider mainClass="slider_bg" items={items} />
-        </div>
+
+        <SwiperSlider
+          setIndex={setIndex}
+          mainClass="slider_mobile"
+          items={items}
+        />
+        <SwiperSlider mainClass="slider_bg" items={items} />
       </div>
       <div className="gallery-desktop">
         <div className={`description ${index > 0 ? "hidden" : "fade-in"}`}>

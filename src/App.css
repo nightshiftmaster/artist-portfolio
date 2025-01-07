@@ -331,7 +331,7 @@ html {
 }
 
 .slider__img {
-  width: 110%;
+  width: 100%;
   height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -609,7 +609,7 @@ a {
     display: none;
   }
   .slider__item {
-    height: 800px;
+    height: 100%;
     margin-right: 5px;
   }
   .slider_mobile {
@@ -657,7 +657,7 @@ a {
     padding: 4rem;
     justify-content: space-between;
     align-items: center;
-    gap: 2vh;
+    gap: calc(var(--index) * 2.3);
     margin-left: 0.5vh;
     height: 10vh;
   }
