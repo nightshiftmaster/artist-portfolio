@@ -21,11 +21,7 @@ const en = {
     },
     paragraphs: {
       home_paragraph: "It's all about music",
-      gallery_paragraph: `The true beauty of music lies in its boundless diversity, the
-            enchanting magic of sounds, the delicate balance of style and
-            timbre. It is an art of crafting emotions, weaving melodies, and
-            delivering this masterpiece to the listener—inviting them to immerse
-            themselves and savor the final creation.`,
+      gallery_paragraph: `Hello, my name is Vlad. I provide professional musical services for a wide range of events, including weddings, birthdays, clubs, bars, proposals, and more. With a distinctive sound and a versatile repertoire, I am dedicated to creating an unforgettable atmosphere for your special occasion.`,
       about_paragraph: `My name is Vlad Medvedev, and I was born in Ukraine. From an early age,
             I developed a passion for music, starting with singing. At the age of
             six, I entered a music school, where I began learning the fundamentals
