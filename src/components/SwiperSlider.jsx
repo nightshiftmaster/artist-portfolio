@@ -27,7 +27,7 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
         },
         680: {
           slidesPerView: 3.5,
-          spaceBetween: 60,
+          spaceBetween: 40,
         },
       },
     });

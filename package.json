@@ -11,6 +11,7 @@
     "i18next": "^23.16.8",
     "locomotive-scroll": "^4.1.4",
     "my-vlad-scroll": "^1.0.0",
+    "plyr": "^3.7.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-i18next": "^15.4.0",

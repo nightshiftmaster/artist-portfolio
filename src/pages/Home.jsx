@@ -123,12 +123,12 @@ const Home = () => {
         <div className="container">
           <main className="gallery">
             <div data-speed=".9" className="gallery__left">
-              {videoItems.slice(0, 3).map((item, i) => {
+              {videoItems.slice(0, 4).map((item, i) => {
                 return <VideoCard key={i} item={item} index={i} />;
               })}
             </div>
             <div data-speed="1.1" className="gallery__right">
-              {videoItems.slice(3, 6).map((item, i) => {
+              {videoItems.slice(4, 8).map((item, i) => {
                 return <VideoCard key={i} item={item} index={i} />;
               })}
             </div>
