@@ -40,7 +40,7 @@ const Home = () => {
         item,
         { x: -100, opacity: 0 },
         {
-          x: -30,
+          x: -40,
           opacity: 4,
           start: "top bottom",
           end: "top center",
@@ -49,13 +49,13 @@ const Home = () => {
       );
       gsap.fromTo(
         item,
-        { opacity: 4 },
+        { opacity: 1 },
         {
           opacity: 0,
-          start: "bottom center", // Начало затухания позже
-          end: "bottom -200",
           scrollTrigger: {
             trigger: item,
+            start: "bottom center",
+            end: "bottom ",
             scrub: true,
           },
         }
