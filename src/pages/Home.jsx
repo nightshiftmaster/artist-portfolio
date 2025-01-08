@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 const Home = () => {
   const { t } = useTranslation();
   useEffect(() => {
-    if (ScrollTrigger.isTouch !== 1) {
+    if (!ScrollTrigger.isTouch) {
       ScrollSmoother.create({
         wrapper: ".wrapper",
         content: ".content",

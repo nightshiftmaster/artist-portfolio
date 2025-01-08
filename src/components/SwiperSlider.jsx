@@ -1,10 +1,13 @@
 import { Swiper } from "swiper";
-
+import SlideItem from "./SlideItem";
 import { useEffect, useRef, useState } from "react";
 import { Controller, Mousewheel, Parallax, Pagination } from "swiper/modules";
+import { IoIosClose } from "react-icons/io";
 
 const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [opened, setOpened] = useState(false);
+  const [aciveUrl, setActiveUrl] = useState("");
   const swiperRef = useRef(null);
   useEffect(() => {
     const sliderBg = new Swiper(".slider_bg", {
@@ -33,7 +36,7 @@ const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
     });
 
     const mobileMain = new Swiper(".slider_mobile", {
-      modules: [Mousewheel, Controller, Parallax, Pagination],
+      modules: [Mousewheel, Controller, Pagination],
       freeMode: true,
       parallax: true,
       controller: { control: sliderBg },
@@ -51,6 +54,7 @@ const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
 
     mobileMain.on("slideChange", function () {
       setActiveIndex(null);
+      setOpened(false);
 
       if (typeof setIndex === "undefined") {
         return;
@@ -66,6 +70,31 @@ const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
 
   return (
     <div className={`swiper slider ${mainClass}`} ref={swiperRef}>
+      <div
+        className={`active-foto tilt-in-fwd-tr ${opened ? "opened-foto" : ""}`}
+      >
+        <div
+          onClick={() => setOpened(false)}
+          style={{
+            position: "absolute",
+
+            top: "15vh",
+            right: "10vw",
+          }}
+        >
+          <IoIosClose size="45" />
+        </div>
+        <img
+          src={aciveUrl}
+          onClick={() => setOpened(false)}
+          style={{
+            width: "80%",
+            height: "70%",
+            borderRadius: "8px",
+          }}
+        />
+      </div>
+
       <div className="custom-pagination">
         {items.map((_, i) => {
           return (
@@ -76,35 +105,46 @@ const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
           );
         })}
       </div>
+
       <div className="swiper-wrapper slider__wrapper">
         {items.map((item, i) => {
           return (
-            <div
-              key={i}
-              className={`swiper-slide slider__item ${
-                activeIndex === i ? "opened" : ""
-              }`}
-              onClick={() => {
-                setActiveIndex((prev) => {
-                  if (prev === i) {
-                    prev = null;
-                    return prev;
-                  } else {
-                    prev = i;
-                    return prev;
-                  }
-                });
-              }}
-            >
-              <div
-                className="slider__img"
-                data-swiper-parallax={i % 2 === 0 ? "20%" : "30%"}
-                style={{
-                  backgroundImage: `url(${item})`,
-                }}
-              ></div>
-            </div>
+            <SlideItem
+              item={item}
+              opened={opened}
+              setOpened={setOpened}
+              setActiveUrl={setActiveUrl}
+              i={i}
+              setActiveIndex={setActiveIndex}
+              activeIndex={activeIndex}
+            />
           );
+          // <div
+          //   key={i}
+          //   className={`swiper-slide slider__item ${
+          //     activeIndex === i ? "opened" : ""
+          //   }`}
+          //   onClick={() => {
+          //     setOpened(!opened);
+          //     setActiveIndex((prev) => {
+          //       if (prev === i) {
+          //         prev = null;
+          //         return prev;
+          //       } else {
+          //         prev = i;
+          //         return prev;
+          //       }
+          //     });
+          //   }}
+          // >
+          //   <div
+          //     className="slider__img"
+          //     data-swiper-parallax={i % 2 === 0 ? "20%" : "30%"}
+          //     style={{
+          //       backgroundImage: `url(${item})`,
+          //     }}
+          //   ></div>
+          // </div>
         })}
       </div>
     </div>
