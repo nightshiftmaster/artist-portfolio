@@ -42,8 +42,8 @@ const Home = () => {
         {
           x: -30,
           opacity: 4,
-          // start: "-850",
-          // end: "-100",
+          start: "-850",
+          end: "-100",
           scrollTrigger: { trigger: item, scrub: true },
         }
       );
@@ -52,8 +52,8 @@ const Home = () => {
         { opacity: 4 },
         {
           opacity: 0,
-          // start: "-850",
-          // end: "-100",
+          start: "-850",
+          end: "-100",
           scrollTrigger: {
             trigger: item,
             scrub: true,
