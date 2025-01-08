@@ -1,11 +1,9 @@
 import { Swiper } from "swiper";
-// import "swiper/css";
-// import "swiper/css/pagination";
-// import "swiper/less/pagination";
+
 import { useEffect, useRef, useState } from "react";
 import { Controller, Mousewheel, Parallax, Pagination } from "swiper/modules";
 
-const SwiperSlider = ({ setIndex, mainClass, items }) => {
+const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const swiperRef = useRef(null);
   useEffect(() => {
@@ -18,14 +16,9 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
     });
     const sliderMain = new Swiper(".slider_main", {
       modules: [Parallax, Mousewheel, Controller, Pagination],
-      pagination: {
-        el: ".swiper-pagination",
-        type: "bullets",
-      },
       freeMode: true,
       centeredSlides: true,
       parallax: true,
-      // mousewheel: true,
       controller: { control: sliderBg },
       breakpoints: {
         0: {
@@ -41,18 +34,12 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
 
     const mobileMain = new Swiper(".slider_mobile", {
       modules: [Mousewheel, Controller, Parallax, Pagination],
-      pagination: {
-        el: ".swiper-pagination",
-        type: "bullets",
-      },
       freeMode: true,
       parallax: true,
-      // mousewheel: true,
       controller: { control: sliderBg },
     });
 
     sliderMain.on("slideChange", function () {
-      //   console.log(sliderMain.activeIndex);
       setActiveIndex(null);
 
       if (typeof setIndex === "undefined") {
@@ -63,13 +50,12 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
     });
 
     mobileMain.on("slideChange", function () {
-      //   console.log(sliderMain.activeIndex);
       setActiveIndex(null);
 
       if (typeof setIndex === "undefined") {
         return;
       } else {
-        setIndex(sliderMain.activeIndex);
+        setIndex(mobileMain.activeIndex);
       }
     });
 
@@ -80,6 +66,16 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
 
   return (
     <div className={`swiper slider ${mainClass}`} ref={swiperRef}>
+      <div className="custom-pagination">
+        {items.map((_, i) => {
+          return (
+            <button
+              key={i}
+              className={`pagination-bullet ${index === i ? "active" : ""}`}
+            ></button>
+          );
+        })}
+      </div>
       <div className="swiper-wrapper slider__wrapper">
         {items.map((item, i) => {
           return (
@@ -111,10 +107,6 @@ const SwiperSlider = ({ setIndex, mainClass, items }) => {
           );
         })}
       </div>
-      {/* <div
-        className="swiper-pagination"
-        style={{ backgroundColor: "white" }}
-      ></div> */}
     </div>
   );
 };

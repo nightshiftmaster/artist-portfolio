@@ -421,7 +421,7 @@ p {
 .footer {
   font-family: raleway-m;
   flex-direction: column;
-  height: 15vh;
+  height: 18vh;
   z-index: 10;
   width: 100vw;
   background-color: #121212;
@@ -567,6 +567,28 @@ a {
 }
 
 @media only screen and (max-width: 950px) {
+  .custom-pagination {
+    position: relative;
+    bottom: 10px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    z-index: 20;
+  }
+
+  .pagination-bullet {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: #edebeb;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .pagination-bullet.active {
+    background-color: #315ee6;
+  }
   .contact-container {
     margin-top: 4vh;
     margin-bottom: 4vh;
@@ -615,10 +637,12 @@ a {
   .gallery-desktop {
     display: none;
   }
+
   .slider__item {
     height: 800px;
     margin-right: 5px;
   }
+
   .slider_mobile {
     overflow: visible;
     z-index: 10;

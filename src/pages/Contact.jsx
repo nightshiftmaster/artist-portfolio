@@ -28,7 +28,6 @@ const Contact = () => {
                 style={{ height: "35px", width: "35px", marginLeft: "-8px" }}
                 src="./socials/whatsup.png"
                 alt=""
-                srcset=""
               />
 
               <a className="text-block__p" href="https://wa.me/972547355910">

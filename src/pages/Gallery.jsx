@@ -25,6 +25,7 @@ const Gallery = () => {
         </div>
 
         <SwiperSlider
+          index={index}
           setIndex={setIndex}
           mainClass="slider_mobile"
           items={items}
@@ -38,6 +39,7 @@ const Gallery = () => {
         </div>
         <div className="swiper-container">
           <SwiperSlider
+            index={index}
             setIndex={setIndex}
             mainClass="slider_main"
             items={items}

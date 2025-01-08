@@ -10,12 +10,13 @@ const VideoCard = ({ item }) => {
       </div>
       <div className="video">
         <iframe
+          title={item.name}
           src={item.url}
           className="video-file"
           scrolling="no"
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-          script-src="none"
+          script-src-elem="none"
         ></iframe>
       </div>
     </div>

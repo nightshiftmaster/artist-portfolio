@@ -1,4 +1,7 @@
 import "./App.css";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/navigation";
 import "animate.css";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
