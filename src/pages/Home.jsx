@@ -10,115 +10,117 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 const Home = () => {
   const { t } = useTranslation();
   useEffect(() => {
-    ScrollSmoother.create({
-      wrapper: ".wrapper",
-      content: ".content",
-      smooth: 1.5,
-      effects: true,
-    });
-    gsap.fromTo(
-      ".hero-section",
-      { opacity: 4 },
-      {
-        opacity: 0,
-        scrollTrigger: {
-          trigger: ".hero-section",
-          start: " center",
-          end: "1300",
-          scrub: true,
-        },
-      }
-    );
-    const itemsLeft = gsap.utils.toArray(".gallery__left .gallery__item");
-
-    const itemsRight = gsap.utils.toArray(".gallery__right .gallery__item");
-
-    const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
-
-    allItems.forEach((item) => {
+    if (ScrollTrigger.isTouch !== 1) {
+      ScrollSmoother.create({
+        wrapper: ".wrapper",
+        content: ".content",
+        smooth: 1.5,
+        effects: true,
+      });
       gsap.fromTo(
-        item,
-        { x: -100, opacity: 0 },
-        {
-          x: 0,
-          opacity: 4,
-          duration: 2,
-          ease: "power2.out",
-          start: "top bottom",
-          end: "top center",
-          scrollTrigger: { trigger: item, scrub: true },
-        }
-      );
-      gsap.fromTo(
-        item,
-        { opacity: 1 },
+        ".hero-section",
+        { opacity: 4 },
         {
           opacity: 0,
-
-          ease: "power2.out",
           scrollTrigger: {
-            trigger: item,
-            start: "bottom center-=200",
-            end: "bottom ",
+            trigger: ".hero-section",
+            start: " center",
+            end: "1300",
             scrub: true,
           },
         }
       );
-    });
+      const itemsLeft = gsap.utils.toArray(".gallery__left .gallery__item");
 
-    itemsLeft.forEach((item) => {
-      gsap.fromTo(
-        item,
-        { x: -100, opacity: 0 },
-        {
-          x: 0,
-          opacity: 4,
-          // start: "-850",
-          // end: "-100",
-          scrollTrigger: { trigger: item, scrub: true },
-        }
-      );
-      gsap.fromTo(
-        item,
-        { opacity: 4 },
-        {
-          opacity: 0.2,
-          start: "-150",
-          end: "-10",
-          scrollTrigger: {
-            trigger: item,
-            scrub: true,
-          },
-        }
-      );
-    });
+      const itemsRight = gsap.utils.toArray(".gallery__right .gallery__item");
 
-    itemsRight.forEach((item) => {
-      gsap.fromTo(
-        item,
-        { x: 50, opacity: 0 },
-        {
-          x: 0,
-          opacity: 4,
-          // start: "-850",
-          // end: "-100",
-          scrollTrigger: { trigger: item, scrub: true },
-        }
-      );
-      gsap.fromTo(
-        item,
-        { opacity: 4 },
-        {
-          opacity: 0.2,
-          // start: "-850",
-          // end: "-100",
-          scrollTrigger: {
-            trigger: item,
-            scrub: true,
-          },
-        }
-      );
-    });
+      const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
+
+      // allItems.forEach((item) => {
+      //   gsap.fromTo(
+      //     item,
+      //     { x: -100, opacity: 0 },
+      //     {
+      //       x: 0,
+      //       opacity: 4,
+      //       duration: 2,
+      //       ease: "power2.out",
+      //       start: "top bottom",
+      //       end: "top center",
+      //       scrollTrigger: { trigger: item, scrub: true },
+      //     }
+      //   );
+      //   gsap.fromTo(
+      //     item,
+      //     { opacity: 1 },
+      //     {
+      //       opacity: 0,
+
+      //       ease: "power2.out",
+      //       scrollTrigger: {
+      //         trigger: item,
+      //         start: "bottom center-=200",
+      //         end: "bottom ",
+      //         scrub: true,
+      //       },
+      //     }
+      //   );
+      // });
+
+      itemsLeft.forEach((item) => {
+        gsap.fromTo(
+          item,
+          { x: -100, opacity: 0 },
+          {
+            x: 0,
+            opacity: 4,
+            // start: "-850",
+            // end: "-100",
+            scrollTrigger: { trigger: item, scrub: true },
+          }
+        );
+        gsap.fromTo(
+          item,
+          { opacity: 4 },
+          {
+            opacity: 0.2,
+            start: "-150",
+            end: "-10",
+            scrollTrigger: {
+              trigger: item,
+              scrub: true,
+            },
+          }
+        );
+      });
+
+      itemsRight.forEach((item) => {
+        gsap.fromTo(
+          item,
+          { x: 50, opacity: 0 },
+          {
+            x: 0,
+            opacity: 4,
+            // start: "-850",
+            // end: "-100",
+            scrollTrigger: { trigger: item, scrub: true },
+          }
+        );
+        gsap.fromTo(
+          item,
+          { opacity: 4 },
+          {
+            opacity: 0.2,
+            // start: "-850",
+            // end: "-100",
+            scrollTrigger: {
+              trigger: item,
+              scrub: true,
+            },
+          }
+        );
+      });
+    }
   }, []);
   return (
     <div>

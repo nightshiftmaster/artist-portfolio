@@ -733,6 +733,7 @@ a {
     align-items: center;
     margin-top: -40px;
     padding: calc(var(--index) * 5) 0;
+    margin-top: -40px;
     /* gap: calc(var(--index) * 0.1); */
   }
 
