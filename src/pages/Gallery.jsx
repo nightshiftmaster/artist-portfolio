@@ -14,7 +14,7 @@ const Gallery = () => {
 
   return (
     <div className="photo-gallery">
-      <div className="gallery-mobile">
+      <div className="foto-gallery-mobile">
         <div className="description-mobile">
           <div className="logo tracking-in-expand">
             {t(`headers.gallery_header`)}

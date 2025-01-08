@@ -579,8 +579,8 @@ a {
   }
 
   .pagination-bullet {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     margin: 8px 5px;
     background-color: #edebeb;
     border: none;
@@ -592,7 +592,7 @@ a {
     background-color: #315ee6;
   }
   .contact-container {
-    margin-top: 4vh;
+    margin-top: 3vh;
     margin-bottom: 4vh;
   }
   .about_container {
@@ -633,12 +633,13 @@ a {
     top: -40px;
     box-shadow: rgb(0 0 0 / 0.5) 0 0 0 10000px;
   }
-  .gallery-mobile {
+  .foto-gallery-mobile {
     display: flex;
     margin-top: -5vh;
-    justify-content: center;
-    align-items: center;
     will-change: transform;
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--index) * 4) 0;
   }
 
   .gallery-desktop {
@@ -654,7 +655,6 @@ a {
     overflow: visible;
     z-index: 10;
     width: 200px;
-    will-change: transform;
   }
   .description-mobile {
     text-align: justify;
@@ -729,9 +729,11 @@ a {
   .gallery-mobile {
     display: flex;
     flex-direction: column;
-
-    padding: calc(var(--index) * 5) 0;
-    gap: calc(var(--index) * 0.1);
+    justify-content: center;
+    align-items: center;
+    margin-top: -40px;
+    /* padding: calc(var(--index) * 5) 0;
+    gap: calc(var(--index) * 0.1); */
   }
 
   .gallery {

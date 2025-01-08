@@ -10,7 +10,6 @@ const About = () => {
           display: "flex",
           flexDirection: "column",
           gap: "5vh",
-          marginTop: "2vh",
         }}
       >
         <h1 className="text-block__h tracking-in-expand ">
