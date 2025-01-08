@@ -732,8 +732,8 @@ a {
     justify-content: center;
     align-items: center;
     margin-top: -40px;
-    /* padding: calc(var(--index) * 5) 0;
-    gap: calc(var(--index) * 0.1); */
+    padding: calc(var(--index) * 5) 0;
+    /* gap: calc(var(--index) * 0.1); */
   }
 
   .gallery {
