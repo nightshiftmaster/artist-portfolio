@@ -575,7 +575,7 @@ a {
     width: 100vw;
     display: flex;
     justify-content: center;
-    z-index: 20;
+    z-index: 0;
   }
 
   .pagination-bullet {
@@ -627,8 +627,9 @@ a {
   }
 
   .opened {
-    z-index: 2;
-    transform: scale(1.45);
+    z-index: 10;
+    transform: scale(1.55);
+    top: -30px;
     box-shadow: rgb(0 0 0 / 0.5) 0 0 0 10000px;
   }
   .gallery-mobile {

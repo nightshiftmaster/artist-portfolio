@@ -78,7 +78,9 @@ const Home = () => {
         item,
         { opacity: 4 },
         {
-          opacity: 0,
+          opacity: 0.2,
+          start: "-150",
+          end: "-10",
           scrollTrigger: {
             trigger: item,
             scrub: true,
@@ -88,7 +90,7 @@ const Home = () => {
     });
 
     itemsRight.forEach((item) => {
-      return gsap.fromTo(
+      gsap.fromTo(
         item,
         { x: 50, opacity: 0 },
         {
@@ -97,6 +99,19 @@ const Home = () => {
           // start: "-850",
           // end: "-100",
           scrollTrigger: { trigger: item, scrub: true },
+        }
+      );
+      gsap.fromTo(
+        item,
+        { opacity: 4 },
+        {
+          opacity: 0.2,
+          // start: "-850",
+          // end: "-100",
+          scrollTrigger: {
+            trigger: item,
+            scrub: true,
+          },
         }
       );
     });
