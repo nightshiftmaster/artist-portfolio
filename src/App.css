@@ -636,6 +636,8 @@ a {
   .gallery-mobile {
     display: flex;
     margin-top: -5vh;
+    justify-content: center;
+    align-items: center;
     will-change: transform;
   }
 

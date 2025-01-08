@@ -35,32 +35,32 @@ const Home = () => {
 
     const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
 
-    allItems.forEach((item) => {
-      gsap.fromTo(
-        item,
-        { x: -100, opacity: 0 },
-        {
-          x: -40,
-          opacity: 4,
-          start: "top bottom",
-          end: "top center",
-          scrollTrigger: { trigger: item, scrub: true },
-        }
-      );
-      gsap.fromTo(
-        item,
-        { opacity: 1 },
-        {
-          opacity: 0,
-          scrollTrigger: {
-            trigger: item,
-            start: "bottom center",
-            end: "bottom ",
-            scrub: true,
-          },
-        }
-      );
-    });
+    // allItems.forEach((item) => {
+    //   gsap.fromTo(
+    //     item,
+    //     { x: -100, opacity: 0 },
+    //     {
+    //       x: -40,
+    //       opacity: 4,
+    //       start: "top bottom",
+    //       end: "top center",
+    //       scrollTrigger: { trigger: item, scrub: true },
+    //     }
+    //   );
+    //   gsap.fromTo(
+    //     item,
+    //     { opacity: 1 },
+    //     {
+    //       opacity: 0,
+    //       scrollTrigger: {
+    //         trigger: item,
+    //         start: "bottom center",
+    //         end: "bottom ",
+    //         scrub: true,
+    //       },
+    //     }
+    //   );
+    // });
 
     itemsLeft.forEach((item) => {
       gsap.fromTo(
