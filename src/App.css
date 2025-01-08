@@ -664,6 +664,10 @@ a {
     gap: calc(var(--gallery-gap) * 0.6);
   }
 
+  .description-mobile .text-block__p {
+    margin-top: -2vh;
+  }
+
   .text-block__p {
     line-height: calc(var(--index) * 2);
     font-size: calc(var(--index));
