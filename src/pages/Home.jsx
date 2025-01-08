@@ -42,7 +42,7 @@ const Home = () => {
         {
           x: 0,
           opacity: 4,
-          duration: 3,
+          duration: 2,
           ease: "power2.out",
           start: "top bottom",
           end: "top center",
