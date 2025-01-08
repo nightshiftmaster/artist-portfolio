@@ -40,12 +40,12 @@ const Home = () => {
         item,
         { x: -150, opacity: 0 },
         {
-          x: -75,
+          x: -80,
           opacity: 1,
           scrollTrigger: {
             trigger: item,
             start: "top bottom",
-            end: "center center",
+            end: "center center-=200",
             scrub: true,
           },
         }
