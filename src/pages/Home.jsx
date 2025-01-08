@@ -16,46 +16,50 @@ const Home = () => {
       smooth: 1.5,
       effects: true,
     });
+
     gsap.fromTo(
       ".hero-section",
-      { opacity: 4 },
+      { opacity: 1 },
       {
         opacity: 0,
         scrollTrigger: {
           trigger: ".hero-section",
-          start: " center",
-          end: "1300",
+          start: "top center",
+          end: "2000",
           scrub: true,
         },
       }
     );
+
     const itemsLeft = gsap.utils.toArray(".gallery__left .gallery__item");
-
     const itemsRight = gsap.utils.toArray(".gallery__right .gallery__item");
-
     const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
 
     allItems.forEach((item) => {
       gsap.fromTo(
         item,
-        { x: -100, opacity: 0 },
+        { x: -150, opacity: 0 },
         {
-          x: -30,
-          opacity: 4,
-          // start: "-850",
-          // end: "-100",
-          scrollTrigger: { trigger: item, scrub: true },
-        }
-      );
-      gsap.fromTo(
-        item,
-        { opacity: 4 },
-        {
-          opacity: 0,
-          // start: "-850",
-          // end: "-100",
+          x: -75,
+          opacity: 1,
           scrollTrigger: {
             trigger: item,
+            start: "top bottom",
+            end: "center center",
+            scrub: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        item,
+        { opacity: 1 },
+        {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: item,
+            start: "center center-=300",
+            end: "bottom top",
             scrub: true,
           },
         }
@@ -68,21 +72,24 @@ const Home = () => {
         { x: -100, opacity: 0 },
         {
           x: 0,
-          opacity: 4,
-          // start: "-850",
-          // end: "-100",
-          scrollTrigger: { trigger: item, scrub: true },
+          opacity: 1,
+          scrollTrigger: {
+            trigger: item,
+            start: "top bottom",
+            end: "top center",
+            scrub: true,
+          },
         }
       );
       gsap.fromTo(
         item,
-        { opacity: 4 },
+        { opacity: 1 },
         {
-          opacity: 0.2,
-          // start: "-150",
-          // end: "-10",
+          opacity: 0,
           scrollTrigger: {
             trigger: item,
+            start: "bottom center",
+            end: "bottom -200",
             scrub: true,
           },
         }
@@ -92,30 +99,34 @@ const Home = () => {
     itemsRight.forEach((item) => {
       gsap.fromTo(
         item,
-        { x: 50, opacity: 0 },
+        { x: 100, opacity: 0 },
         {
           x: 0,
-          opacity: 4,
-          // start: "-850",
-          // end: "-100",
-          scrollTrigger: { trigger: item, scrub: true },
+          opacity: 1,
+          scrollTrigger: {
+            trigger: item,
+            start: "top bottom",
+            end: "top center",
+            scrub: true,
+          },
         }
       );
       gsap.fromTo(
         item,
-        { opacity: 4 },
+        { opacity: 1 },
         {
-          opacity: 0.2,
-          // start: "-850",
-          // end: "-100",
+          opacity: 0,
           scrollTrigger: {
             trigger: item,
+            start: "bottom center",
+            end: "bottom -200",
             scrub: true,
           },
         }
       );
     });
   }, []);
+
   return (
     <div>
       <header className="hero-section fade-in">
