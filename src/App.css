@@ -416,6 +416,8 @@ p {
   opacity: 0.8;
   font-size: calc(var(--index) * 1.1);
   text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 .footer {
@@ -577,9 +579,9 @@ a {
   }
 
   .pagination-bullet {
-    width: 12px;
-    height: 12px;
-    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    margin: 8px 5px;
     background-color: #edebeb;
     border: none;
     border-radius: 50%;
@@ -650,6 +652,9 @@ a {
   }
   .description-mobile {
     text-align: justify;
+    hyphens: auto;
+    overflow-wrap: break-word;
+
     margin-top: 15vh;
     display: flex;
     flex-direction: column;
