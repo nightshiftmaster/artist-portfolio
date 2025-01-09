@@ -7,7 +7,7 @@ import { IoIosClose } from "react-icons/io";
 const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [opened, setOpened] = useState(false);
-  const [aciveUrl, setActiveUrl] = useState("");
+  const [aciveUrl, setActiveUrl] = useState(null);
   const swiperRef = useRef(null);
   useEffect(() => {
     const sliderBg = new Swiper(".slider_bg", {
@@ -39,6 +39,8 @@ const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
       modules: [Mousewheel, Controller, Pagination],
       freeMode: true,
       parallax: true,
+      freeMode: true,
+      centeredSlides: true,
       controller: { control: sliderBg },
     });
 
@@ -70,9 +72,7 @@ const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
 
   return (
     <div className={`swiper slider ${mainClass}`} ref={swiperRef}>
-      <div
-        className={`active-foto tilt-in-fwd-tr ${opened ? "opened-foto" : ""}`}
-      >
+      <div className={`active-foto tilt-in-bottom-2 ${opened ? "opened" : ""}`}>
         <div
           onClick={() => setOpened(false)}
           style={{
@@ -91,6 +91,7 @@ const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
             width: "80%",
             height: "70%",
             borderRadius: "8px",
+            objectFit: "cover",
           }}
         />
       </div>
@@ -109,15 +110,35 @@ const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
       <div className="swiper-wrapper slider__wrapper">
         {items.map((item, i) => {
           return (
-            <SlideItem
-              item={item}
-              opened={opened}
-              setOpened={setOpened}
-              setActiveUrl={setActiveUrl}
-              i={i}
-              setActiveIndex={setActiveIndex}
-              activeIndex={activeIndex}
-            />
+            <div
+              key={i}
+              className={`swiper-slide slider__item ${
+                activeIndex === i && mainClass !== "slider_mobile"
+                  ? "opened"
+                  : ""
+              }`}
+              onClick={() => {
+                setOpened(!opened);
+                setActiveUrl(item);
+                setActiveIndex((prev) => {
+                  if (prev === i) {
+                    prev = null;
+                    return prev;
+                  } else {
+                    prev = i;
+                    return prev;
+                  }
+                });
+              }}
+            >
+              <div
+                className="slider__img"
+                data-swiper-parallax={i % 2 === 0 ? "20%" : "30%"}
+                style={{
+                  backgroundImage: `url(${item})`,
+                }}
+              ></div>
+            </div>
           );
           // <div
           //   key={i}

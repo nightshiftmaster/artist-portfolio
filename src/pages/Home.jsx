@@ -10,13 +10,13 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 const Home = () => {
   const { t } = useTranslation();
   useEffect(() => {
-    if (!ScrollTrigger.isTouch) {
-      ScrollSmoother.create({
-        wrapper: ".wrapper",
-        content: ".content",
-        smooth: 1.5,
-        effects: true,
-      });
+    ScrollSmoother.create({
+      wrapper: ".wrapper",
+      content: ".content",
+      smooth: 1.5,
+      effects: true,
+    });
+    if (ScrollTrigger.isTouch !== 1) {
       gsap.fromTo(
         ".hero-section",
         { opacity: 4 },
@@ -33,40 +33,6 @@ const Home = () => {
       const itemsLeft = gsap.utils.toArray(".gallery__left .gallery__item");
 
       const itemsRight = gsap.utils.toArray(".gallery__right .gallery__item");
-
-      const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
-
-      // allItems.forEach((item) => {
-      //   gsap.fromTo(
-      //     item,
-      //     { x: -100, opacity: 0 },
-      //     {
-      //       x: 0,
-      //       opacity: 4,
-      //       duration: 2,
-      //       ease: "power2.out",
-      //       start: "top bottom",
-      //       end: "top center",
-      //       scrollTrigger: { trigger: item, scrub: true },
-      //     }
-      //   );
-      //   gsap.fromTo(
-      //     item,
-      //     { opacity: 1 },
-      //     {
-      //       opacity: 0,
-
-      //       ease: "power2.out",
-      //       scrollTrigger: {
-      //         trigger: item,
-      //         start: "bottom center-=200",
-      //         end: "bottom ",
-      //         scrub: true,
-      //       },
-      //     }
-      //   );
-      // });
-
       itemsLeft.forEach((item) => {
         gsap.fromTo(
           item,
@@ -121,6 +87,39 @@ const Home = () => {
         );
       });
     }
+
+    const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
+
+    allItems.forEach((item) => {
+      gsap.fromTo(
+        item,
+        { x: -100, opacity: 0 },
+        {
+          x: 0,
+          opacity: 4,
+          duration: 2,
+          ease: "power2.out",
+          start: "top bottom",
+          end: "top center",
+          scrollTrigger: { trigger: item, scrub: true },
+        }
+      );
+      gsap.fromTo(
+        item,
+        { opacity: 1 },
+        {
+          opacity: 0,
+
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: item,
+            start: "bottom center-=200",
+            end: "bottom ",
+            scrub: true,
+          },
+        }
+      );
+    });
   }, []);
   return (
     <div>

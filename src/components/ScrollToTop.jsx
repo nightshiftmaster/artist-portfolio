@@ -8,7 +8,7 @@ const ScrollToTop = () => {
     const timeout = setTimeout(() => {
       window.scrollTo({
         top: 0,
-        behavior: "smooth",
+        behavior: "auto",
       });
     }, 100);
 
