@@ -75,6 +75,8 @@ const Home = () => {
       });
     }
 
+    ScrollTrigger.normalizeScroll(true);
+
     // Mobile animations
     const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
     allItems.forEach((item) => {
