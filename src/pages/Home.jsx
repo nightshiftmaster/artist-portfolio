@@ -7,9 +7,12 @@ import VideoCard from "../components/VideoCard";
 import { useTranslation } from "react-i18next";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
 const Home = () => {
   const { t } = useTranslation();
+
   useEffect(() => {
+    // Check if the device is not touch (desktop only)
     if (ScrollTrigger.isTouch !== 1) {
       ScrollSmoother.create({
         wrapper: ".wrapper",
@@ -17,70 +20,54 @@ const Home = () => {
         smooth: 1.5,
         effects: true,
       });
+
+      // Hero section animation
       gsap.fromTo(
         ".hero-section",
-        { opacity: 4 },
+        { opacity: 1 },
         {
           opacity: 0,
           scrollTrigger: {
             trigger: ".hero-section",
-            start: " center",
+            start: "center center",
             end: "1300",
             scrub: true,
           },
         }
       );
-      const itemsLeft = gsap.utils.toArray(".gallery__left .gallery__item");
 
-      const itemsRight = gsap.utils.toArray(".gallery__right .gallery__item");
+      // Left gallery animations
+      const itemsLeft = gsap.utils.toArray(".gallery__left .gallery__item");
       itemsLeft.forEach((item) => {
         gsap.fromTo(
           item,
           { x: -150, opacity: 0 },
           {
             x: 0,
-            opacity: 4,
-            // start: "-850",
-            // end: "-100",
-            scrollTrigger: { trigger: item, scrub: true },
-          }
-        );
-        gsap.fromTo(
-          item,
-          { opacity: 4 },
-          {
-            opacity: 0.2,
-            start: "-150",
-            end: "-10",
+            opacity: 1,
             scrollTrigger: {
               trigger: item,
+              start: "top 80%",
+              end: "top 20%",
               scrub: true,
             },
           }
         );
       });
 
+      // Right gallery animations
+      const itemsRight = gsap.utils.toArray(".gallery__right .gallery__item");
       itemsRight.forEach((item) => {
         gsap.fromTo(
           item,
-          { x: 50, opacity: 0 },
+          { x: 150, opacity: 0 },
           {
             x: 0,
-            opacity: 4,
-            // start: "-850",
-            // end: "-100",
-            scrollTrigger: { trigger: item, scrub: true },
-          }
-        );
-        gsap.fromTo(
-          item,
-          { opacity: 4 },
-          {
-            opacity: 0.2,
-            // start: "-850",
-            // end: "-100",
+            opacity: 1,
             scrollTrigger: {
               trigger: item,
+              start: "top 80%",
+              end: "top 20%",
               scrub: true,
             },
           }
@@ -88,75 +75,69 @@ const Home = () => {
       });
     }
 
+    // Mobile animations
     const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
-
     allItems.forEach((item) => {
       gsap.fromTo(
         item,
-        { x: -100, opacity: 0 },
+        { x: -50, opacity: 0 },
         {
           x: 0,
-          opacity: 4,
-          duration: 2,
-          ease: "power2.out",
-          start: "top bottom",
-          end: "top center",
-          scrollTrigger: { trigger: item, scrub: true },
-        }
-      );
-      gsap.fromTo(
-        item,
-        { opacity: 4 },
-        {
-          opacity: 0,
-
+          opacity: 1,
+          duration: 1.5,
           ease: "power2.out",
           scrollTrigger: {
             trigger: item,
-            start: "bottom center",
-            end: "bottom ",
+            start: "top 90%",
+            end: "top 50%",
             scrub: true,
           },
         }
       );
     });
+
+    // Refresh ScrollTrigger after all animations are defined
+    ScrollTrigger.refresh();
   }, []);
+
   return (
-    <div>
-      <header className="hero-section fade-in">
-        <img
-          data-speed=".6"
-          className="hero"
-          src="./images/hero3.png"
-          alt="main-image"
-        />
-        <div className="container fade-in">
-          <div data-speed=".75" className="main-header">
-            <h1 className="main-title">{t("headers.home_header")}</h1>
-            <p className="main-slogan puff-in-center">
-              {t("paragraphs.home_paragraph")}
-            </p>
+    <div className="wrapper">
+      <div className="content">
+        <header className="hero-section fade-in">
+          <img
+            data-speed=".6"
+            className="hero"
+            src="./images/hero3.png"
+            alt="main-image"
+          />
+          <div className="container fade-in">
+            <div data-speed=".75" className="main-header">
+              <h1 className="main-title">{t("headers.home_header")}</h1>
+              <p className="main-slogan puff-in-center">
+                {t("paragraphs.home_paragraph")}
+              </p>
+            </div>
           </div>
-        </div>
-      </header>
-      <div className="portfolo">
-        <div className="container">
-          <main className="gallery">
-            <div data-speed=".9" className="gallery__left">
-              {videoItems.slice(0, 4).map((item, i) => {
-                return <VideoCard key={i} item={item} index={i} />;
-              })}
+        </header>
+        <div className="portfolo">
+          <div className="container">
+            <main className="gallery">
+              <div data-speed=".9" className="gallery__left">
+                {videoItems.slice(0, 4).map((item, i) => (
+                  <VideoCard key={i} item={item} index={i} />
+                ))}
+              </div>
+              <div data-speed="1.1" className="gallery__right">
+                {videoItems.slice(4, 8).map((item, i) => (
+                  <VideoCard key={i} item={item} index={i} />
+                ))}
+              </div>
+            </main>
+            <div className="gallery-mobile">
+              {videoItems.map((item, i) => (
+                <VideoCard key={i} item={item} />
+              ))}
             </div>
-            <div data-speed="1.1" className="gallery__right">
-              {videoItems.slice(4, 8).map((item, i) => {
-                return <VideoCard key={i} item={item} index={i} />;
-              })}
-            </div>
-          </main>
-          <div className="gallery-mobile">
-            {videoItems.map((item, i) => {
-              return <VideoCard key={i} item={item} />;
-            })}
           </div>
         </div>
       </div>
