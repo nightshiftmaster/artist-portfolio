@@ -12,7 +12,7 @@ const Home = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    // Check if the device is not touch (desktop only)
+    // Проверяем поддержку touch-устройств
     if (ScrollTrigger.isTouch !== 1) {
       ScrollSmoother.create({
         wrapper: ".wrapper",
@@ -21,7 +21,7 @@ const Home = () => {
         effects: true,
       });
 
-      // Hero section animation
+      // Анимация заголовка
       gsap.fromTo(
         ".hero-section",
         { opacity: 1 },
@@ -29,14 +29,14 @@ const Home = () => {
           opacity: 0,
           scrollTrigger: {
             trigger: ".hero-section",
-            start: "center center",
-            end: "1300",
+            start: "top center",
+            end: "bottom top",
             scrub: true,
           },
         }
       );
 
-      // Left gallery animations
+      // Левая галерея
       const itemsLeft = gsap.utils.toArray(".gallery__left .gallery__item");
       itemsLeft.forEach((item) => {
         gsap.fromTo(
@@ -47,15 +47,15 @@ const Home = () => {
             opacity: 1,
             scrollTrigger: {
               trigger: item,
-              start: "top 80%",
-              end: "top 20%",
+              start: "top 90%",
+              end: "top 10%",
               scrub: true,
             },
           }
         );
       });
 
-      // Right gallery animations
+      // Правая галерея
       const itemsRight = gsap.utils.toArray(".gallery__right .gallery__item");
       itemsRight.forEach((item) => {
         gsap.fromTo(
@@ -66,8 +66,29 @@ const Home = () => {
             opacity: 1,
             scrollTrigger: {
               trigger: item,
-              start: "top 80%",
-              end: "top 20%",
+              start: "top 90%",
+              end: "top 10%",
+              scrub: true,
+            },
+          }
+        );
+      });
+    } else {
+      // Для мобильных устройств отключаем ScrollSmoother
+      const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
+      allItems.forEach((item) => {
+        gsap.fromTo(
+          item,
+          { x: -50, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 1.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 90%",
+              end: "top 50%",
               scrub: true,
             },
           }
@@ -75,31 +96,7 @@ const Home = () => {
       });
     }
 
-    ScrollTrigger.normalizeScroll(true);
-
-    // Mobile animations
-    const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
-    allItems.forEach((item) => {
-      gsap.fromTo(
-        item,
-        { x: -50, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1.5,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: item,
-            start: "top 90%",
-            end: "top 50%",
-            scrub: true,
-          },
-        }
-      );
-    });
-
-    // Refresh ScrollTrigger after all animations are defined
-    ScrollTrigger.refresh();
+    ScrollTrigger.refresh(); // Обновление триггеров
   }, []);
 
   return (
