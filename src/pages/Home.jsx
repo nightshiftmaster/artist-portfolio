@@ -95,8 +95,6 @@ const Home = () => {
         );
       });
     }
-
-    ScrollTrigger.refresh(); // Обновление триггеров
   }, []);
 
   return (
