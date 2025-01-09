@@ -14,8 +14,10 @@ const Home = () => {
       wrapper: ".wrapper",
       content: ".content",
       smooth: 1,
-      effects: true,
+      effects: ScrollTrigger.isTouch !== 1,
     });
+    ScrollTrigger.refresh();
+
     if (ScrollTrigger.isTouch !== 1) {
       gsap.fromTo(
         ".hero-section",
