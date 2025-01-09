@@ -13,7 +13,7 @@ const Home = () => {
     ScrollSmoother.create({
       wrapper: ".wrapper",
       content: ".content",
-      smooth: 1.5,
+      smooth: 1,
       effects: true,
     });
     if (ScrollTrigger.isTouch !== 1) {
@@ -106,14 +106,14 @@ const Home = () => {
       );
       gsap.fromTo(
         item,
-        { opacity: 1 },
+        { opacity: 4 },
         {
           opacity: 0,
 
           ease: "power2.out",
           scrollTrigger: {
             trigger: item,
-            start: "bottom center-=200",
+            start: "bottom center",
             end: "bottom ",
             scrub: true,
           },
