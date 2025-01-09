@@ -10,15 +10,13 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 const Home = () => {
   const { t } = useTranslation();
   useEffect(() => {
-    ScrollSmoother.create({
-      wrapper: ".wrapper",
-      content: ".content",
-      smooth: 1,
-      effects: ScrollTrigger.isTouch !== 1,
-    });
-    ScrollTrigger.refresh();
-
     if (ScrollTrigger.isTouch !== 1) {
+      ScrollSmoother.create({
+        wrapper: ".wrapper",
+        content: ".content",
+        smooth: 1.5,
+        effects: true,
+      });
       gsap.fromTo(
         ".hero-section",
         { opacity: 4 },
@@ -38,7 +36,7 @@ const Home = () => {
       itemsLeft.forEach((item) => {
         gsap.fromTo(
           item,
-          { x: -100, opacity: 0 },
+          { x: -150, opacity: 0 },
           {
             x: 0,
             opacity: 4,

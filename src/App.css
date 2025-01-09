@@ -81,7 +81,6 @@ html {
 
 .wrapper {
   position: relative;
-  will-change: transform;
 }
 
 .content {
