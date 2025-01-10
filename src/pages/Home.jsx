@@ -11,6 +11,7 @@ const Home = () => {
   const { t } = useTranslation();
   useEffect(() => {
     ScrollSmoother.create({
+      wrapper: ".wrapper",
       content: ".content",
     });
     if (ScrollTrigger.isTouch !== 1) {

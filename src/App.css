@@ -580,6 +580,9 @@ a {
 }
 
 @media only screen and (max-width: 950px) {
+  .content {
+    scroll-behavior: auto; /* Отключить плавную прокрутку на мобильных */
+  }
   .gallery-mobile .gallery__item {
     opacity: 0;
     transform: translateX(-100px); /* Элементы начинаются с левого края */
