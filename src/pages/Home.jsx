@@ -87,10 +87,10 @@ const Home = () => {
         );
       });
     }
-    ScrollSmoother.create({
-      wrapper: ".wrapper",
-      content: ".content",
-    });
+    // ScrollSmoother.create({
+    //   wrapper: ".wrapper",
+    //   content: ".content",
+    // });
 
     const observer = new IntersectionObserver(
       (entries, observer) => {
