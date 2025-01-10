@@ -15,6 +15,7 @@ import ScrollToTop from "./components/ScrollToTop";
 function App() {
   return (
     <div className="wrapper">
+      <div id="top"></div>
       <ScrollToTop />
       <Navbar />
       <div className="content">
