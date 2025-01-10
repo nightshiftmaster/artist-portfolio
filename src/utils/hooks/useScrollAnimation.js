@@ -99,12 +99,12 @@ const useScrollAnimation = () => {
             entry.target.classList.remove("reverse");
           } else {
             // Когда элемент выходит с экрана, анимация в обратном направлении (движение влево)
-            entry.target.classList.add("reverse");
-            entry.target.classList.remove("visible");
+            // entry.target.classList.add("reverse");
+            // entry.target.classList.remove("visible");
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
     items.forEach((item) => observer.observe(item));
