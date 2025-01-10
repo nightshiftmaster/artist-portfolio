@@ -10,6 +10,9 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 const Home = () => {
   const { t } = useTranslation();
   useEffect(() => {
+    ScrollSmoother.create({
+      content: ".content",
+    });
     if (ScrollTrigger.isTouch !== 1) {
       ScrollSmoother.create({
         wrapper: ".wrapper",
@@ -87,10 +90,6 @@ const Home = () => {
         );
       });
     }
-    // ScrollSmoother.create({
-    //   wrapper: ".wrapper",
-    //   content: ".content",
-    // });
 
     const observer = new IntersectionObserver(
       (entries, observer) => {
