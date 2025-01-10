@@ -86,10 +86,9 @@ html {
 .content {
   position: relative;
   width: 100vw;
-  height: 100vh;
+
   will-change: transform;
   display: flex;
-  flex: 1;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -584,18 +583,25 @@ a {
 
 @media only screen and (max-width: 950px) {
   .content {
+    height: 100vh;
     scroll-behavior: auto; /* Отключить плавную прокрутку на мобильных */
   }
-  .gallery-mobile .gallery__item {
+  .gallery__item {
     opacity: 0;
-    transform: translateX(-100px); /* Элементы начинаются с левого края */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Плавное движение и появление */
+    transform: translateX(-100px); /* Начальная позиция слева */
+    transition: opacity 0.3s ease-out, transform 0.6s ease-out;
   }
 
-  /* Класс, который будет добавляться, когда элемент появится на экране */
-  .gallery-mobile .gallery__item.visible {
+  /* Когда элемент появляется на экране (скролл вниз) */
+  .gallery__item.visible {
     opacity: 1;
-    transform: translateX(0); /* Элементы "заезжают" в свою позицию */
+    transform: translateX(0); /* Элемент перемещается в центр */
+  }
+
+  /* Когда элемент выходит с экрана (скролл вверх) */
+  .gallery__item.reverse {
+    opacity: 0;
+    transform: translateX(-100px); /* Элемент возвращается влево */
   }
   .opened {
     display: none;

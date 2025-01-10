@@ -1,5 +1,4 @@
 import { Swiper } from "swiper";
-import SlideItem from "./SlideItem";
 import { useEffect, useRef, useState } from "react";
 import { Controller, Mousewheel, Parallax, Pagination } from "swiper/modules";
 import { IoIosClose } from "react-icons/io";
@@ -39,7 +38,6 @@ const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
       modules: [Mousewheel, Controller, Pagination],
       freeMode: true,
       parallax: true,
-      freeMode: true,
       centeredSlides: true,
       controller: { control: sliderBg },
     });
@@ -86,6 +84,7 @@ const SwiperSlider = ({ setIndex, mainClass, items, index }) => {
         </div>
         <img
           src={aciveUrl}
+          alt="active-image"
           onClick={() => setOpened(false)}
           style={{
             width: "80%",
