@@ -85,10 +85,9 @@ html {
 
 .content {
   position: relative;
-  width: 100vw;
-  height: 100%;
   will-change: transform;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: space-between;
 }
