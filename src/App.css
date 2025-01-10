@@ -580,6 +580,17 @@ a {
 }
 
 @media only screen and (max-width: 950px) {
+  .gallery-mobile .gallery__item {
+    opacity: 0;
+    transform: translateX(-100px); /* Элементы начинаются с левого края */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Плавное движение и появление */
+  }
+
+  /* Класс, который будет добавляться, когда элемент появится на экране */
+  .gallery-mobile .gallery__item.visible {
+    opacity: 1;
+    transform: translateX(0); /* Элементы "заезжают" в свою позицию */
+  }
   .opened {
     display: none;
   }
@@ -746,7 +757,7 @@ a {
   .hero {
     width: calc(var(--index) * 50);
     position: absolute;
-    top: 16vh;
+    top: 18vh;
     left: -15vw;
     z-index: -1;
   }
@@ -759,7 +770,7 @@ a {
   }
 
   .main-slogan {
-    font-size: calc(var(--index) * 2);
+    font-size: calc(var(--index) * 2.5);
     bottom: 20vh;
     left: 10vh;
   }
@@ -770,7 +781,7 @@ a {
     align-items: center;
     margin-top: -40px;
     padding: calc(var(--index) * 5) 0;
-    margin-top: -45px;
+    margin-top: -10vh;
     /* gap: calc(var(--index) * 0.1); */
   }
 

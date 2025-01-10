@@ -10,7 +10,7 @@ const ScrollToTop = () => {
         top: 0,
         behavior: "auto",
       });
-    }, 100);
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, [pathname]);

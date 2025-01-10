@@ -87,37 +87,31 @@ const Home = () => {
         );
       });
     }
-
-    const allItems = gsap.utils.toArray(".gallery-mobile .gallery__item");
-
-    allItems.forEach((item) => {
-      gsap.fromTo(
-        item,
-        { x: -100, opacity: 0 },
-        {
-          x: 0,
-          opacity: 4,
-          start: "top bottom",
-          end: "top center",
-          scrollTrigger: { trigger: item, scrub: true },
-        }
-      );
-      gsap.fromTo(
-        item,
-        { opacity: 4 },
-        {
-          opacity: 0,
-
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: item,
-            start: "bottom center",
-            end: "bottom ",
-            scrub: true,
-          },
-        }
-      );
+    ScrollSmoother.create({
+      wrapper: ".wrapper",
+      content: ".content",
     });
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    ); // Срабатывает, когда 50% элемента будет видно на экране
+
+    const mobileItems = document.querySelectorAll(
+      ".gallery-mobile .gallery__item"
+    );
+    mobileItems.forEach((item) => observer.observe(item));
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
   return (
     <div>
