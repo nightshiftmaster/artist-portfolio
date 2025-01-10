@@ -85,6 +85,8 @@ html {
 
 .content {
   position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
   will-change: transform;
   display: flex;
   flex: 1;
