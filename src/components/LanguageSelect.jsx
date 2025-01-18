@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import i18next from "../utils/i18.n";
 import { CiGlobe } from "react-icons/ci";
 import { FaCaretDown } from "react-icons/fa";
@@ -6,8 +6,27 @@ import { FaCaretDown } from "react-icons/fa";
 const LanguageSelect = () => {
   const [isOpen, setOpen] = useState(false);
   const [lang, setLang] = useState("EN");
+
+  const languageContainerRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        languageContainerRef.current &&
+        !languageContainerRef.current.contains(event.target)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
-    <div>
+    <div ref={languageContainerRef}>
       <div className="language-container" onClick={() => setOpen(!isOpen)}>
         <div className="language-selector">
           <CiGlobe className="responsive-icon" />
