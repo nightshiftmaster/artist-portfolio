@@ -72,11 +72,11 @@ const Gallery = () => {
                         height: "100%",
                         width: "100%",
                         color: "white",
-                        objectFit: "contain",
+                        objectFit: "cover",
                       }}
                     />
                     <IoIosClose
-                      size="35"
+                      size="38"
                       onClick={() => setOpen(false)}
                       style={{
                         position: "absolute",

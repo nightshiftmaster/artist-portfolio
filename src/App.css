@@ -806,7 +806,7 @@ a {
   .slide-image-container {
     position: relative;
     height: 100%;
-    width: fit-content;
+    width: 100%;
   }
   .songs-container-bg {
     display: none;
@@ -936,7 +936,7 @@ a {
   }
   .contact-container {
     margin-top: 3vh;
-    margin-bottom: 4vh;
+    margin-bottom: -5vh;
   }
   .about_container {
     margin-top: 4vh;
@@ -986,7 +986,6 @@ a {
     display: flex;
     flex-direction: column;
     padding: calc(var(--index) * 4) 0;
-    margin-bottom: 10px;
   }
 
   .gallery-desktop {
