@@ -806,7 +806,7 @@ a {
   .slide-image-container {
     position: relative;
     height: 100%;
-    width: 100%;
+    width: 90%;
   }
   .songs-container-bg {
     display: none;
