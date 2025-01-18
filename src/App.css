@@ -803,6 +803,11 @@ a {
 }
 
 @media only screen and (max-width: 950px) {
+  .slide-image-container {
+    position: relative;
+    height: 100%;
+    width: fit-content;
+  }
   .songs-container-bg {
     display: none;
   }

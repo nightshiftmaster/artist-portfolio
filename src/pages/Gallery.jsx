@@ -61,13 +61,7 @@ const Gallery = () => {
                     justifyContent: "center",
                   }}
                 >
-                  <div
-                    style={{
-                      position: "relative",
-                      height: "100%",
-                      width: "fit-content",
-                    }}
-                  >
+                  <div className="slide-image-container">
                     <img
                       onClick={() => setOpen(false)}
                       src={item}
