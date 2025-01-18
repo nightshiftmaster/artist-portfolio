@@ -2,7 +2,7 @@ const heb = {
   translation: {
     headers: {
       home_header: "ולדי כינור",
-      gallery_header: "מוזיקה בנשמתי",
+      gallery_header: "עליי",
       about_header: "עליי",
       contact_header: "בואו נשמור על קשר",
       video: {

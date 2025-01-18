@@ -85,8 +85,9 @@ html {
 
 .content {
   position: relative;
-  width: 100vw;
 
+  width: 100vw;
+  overflow: auto;
   will-change: transform;
   display: flex;
   flex-direction: column;
@@ -324,18 +325,19 @@ html {
 .slider__item {
   max-height: 75vh;
   /* border-radius: 10px; */
-  overflow: hidden;
-  position: relative;
+  /* overflow: hidden;
+  position: relative; */
   cursor: pointer;
   transition: transform var(--transition), box-shadow var(--transition);
   will-change: transform;
 }
 
 .slider__img {
-  width: 110%;
+  width: 100%;
   height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
+  object-fit: contain;
   position: absolute;
   /* left: -50%; */
   transition: var(--transition) !important;
@@ -362,7 +364,7 @@ html {
   display: flex;
   z-index: 2;
   transform: rotate(-15deg) scale(1.45);
-  box-shadow: rgb(0 0 0 / 0.5) 0 0 0 10000px;
+  box-shadow: rgb(0 0 0 / 0.5) 0 0 0 1000px;
 }
 
 .description {
@@ -372,12 +374,14 @@ html {
   left: 8vw;
   max-width: 25vw;
   opacity: 0.9;
-  transition: transform var(--transition), opacity var(--transition);
+  transform: translateY(0); /* Начальная позиция */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  /* transition: transform var(--transition), opacity var(--transition); */
 }
 
 .hidden {
   opacity: 0;
-  transform: translateY(10vh);
+  transform: translateY(20vh);
 }
 
 .logo {
@@ -423,6 +427,18 @@ p {
   overflow-wrap: break-word;
 }
 
+.music-header {
+  text-align: center;
+  font-family: raleway-m;
+  background: linear-gradient(to right, #fcfbfb, #f4fbe8);
+  /* animation: textGlow 2.5s ease-in-out infinite; */
+  -webkit-background-clip: text;
+  font-size: calc(var(--index) * 3.4);
+  padding: 20vh;
+
+  white-space: nowrap;
+}
+
 .footer {
   font-family: raleway-m;
   flex-direction: column;
@@ -459,7 +475,7 @@ p {
 
 .contact-container {
   width: 100vw;
-  height: 90vh;
+  height: fit-content;
   display: flex;
   flex-direction: column;
 }
@@ -580,12 +596,270 @@ a {
 .custom-pagination {
   display: none;
 }
+.player.player-opened {
+  position: fixed;
+  z-index: 3;
+  background: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  height: 15vh;
+  justify-content: space-between;
+  gap: 5vh;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: ease-in-out 0.5s;
+}
+
+.player.collapsed {
+  transition: ease-in-out 0.5s;
+  bottom: -11.6vh;
+}
+
+.player {
+  display: none;
+}
+.player-control {
+  /* flex-1 flex flex-col items-center justify-center */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+  margin-left: -20vw;
+}
+
+/* flex items-center justify-around md:w-36 lg:w-52 2xl:w-80 */
+
+.player-buttons {
+  margin-left: 30px;
+  margin-top: -7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35vw;
+  height: 2vh;
+  cursor: pointer;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.player-artwork.playing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+  animation: spin 3s linear infinite;
+  overflow: hidden;
+}
+
+.player-artwork.stopped {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+  animation: none; /* Отключение вращения */
+  overflow: hidden;
+}
+.player-title {
+  white-space: nowrap;
+  width: 20vw;
+}
+
+.active-song {
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+}
+@keyframes smoothBounce {
+  0%,
+  100% {
+    transform: translate(-50%, 0); /* Начальное и конечное положение */
+  }
+  50% {
+    transform: translate(-50%, -10px); /* Верхнее положение */
+  }
+}
+.scroll-down {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: white;
+  z-index: 1;
+  animation: smoothBounce 2s infinite linear;
+}
+.scroll-down.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.song-container {
+  display: flex;
+  width: 80vw;
+  height: 10vh;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 8px;
+  padding: 7px;
+  justify-content: space-between;
+  gap: 5vw;
+
+  overflow: hidden;
+}
+
+.song-card.active {
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+  background-color: #373636;
+}
+
+.song-artist {
+  font-size: calc(var(--index) * 1.2);
+}
+
+.song-title {
+  font-size: calc(var(--index) * 0.8);
+}
+
+.songs-container-mobile {
+  display: none;
+}
+
+.songs-container-desktop {
+  margin-top: -7vh;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.songs-container-bg {
+  margin-top: 35vh;
+  margin-left: 20vh;
+  position: absolute;
+  z-index: -5;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0.2;
+  filter: blur(120px) saturate(50);
+  will-change: transform;
+}
+
+.song-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #1c1c1c;
+  width: 35vh;
+  height: fit-content;
+  border-radius: 8px;
+}
+
+/* .song-hover {
+  position: absolute;
+  background: black;
+  opacity: 0%;
+  height: 100%;
+  width: 100%;
+}
+.song-hover:hover {
+  opacity: 20%;
+} */
+
+.song-card {
+  opacity: 80%;
+}
+
+.song-image {
+  height: 30vh;
+  width: 100%;
+  opacity: 75%;
+}
+.song-image:hover {
+  opacity: 100%;
+  transition: 0.3s ease-in;
+}
 
 @media only screen and (max-width: 950px) {
+  .songs-container-bg {
+    display: none;
+  }
+  .player-buttons {
+    margin-left: 30px;
+    margin-top: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    height: 1vh;
+    cursor: pointer;
+  }
+  .songs-container-desktop {
+    display: none;
+  }
+  .song-container.active {
+    background-color: #272727;
+  }
+  .songs-container-mobile {
+    display: flex;
+    gap: 4vh;
+    margin-top: -20vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+  }
   .content {
     height: 100vh;
-    scroll-behavior: auto; /* Отключить плавную прокрутку на мобильных */
   }
+  .footer {
+    padding: 20px;
+  }
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .song-text-block .text-block__h {
+    margin-bottom: 0;
+  }
+  /* .content {
+    height: 100vh;
+    scroll-behavior: auto; 
+  } */
   .gallery__item {
     opacity: 0;
     transform: translateX(-100px); /* Начальная позиция слева */
@@ -612,14 +886,21 @@ a {
     justify-content: center;
     align-items: center;
     width: 100vw;
+    /* overflow-x: scroll;
+    overflow-y: hidden; */
     height: 100vh;
-    top: 14vh;
+    top: 10vh;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
-    z-index: 10;
+    z-index: 20;
     backdrop-filter: opacity(30%);
     border-radius: 10px;
+  }
+
+  swiper-container {
+    width: 100%;
+    height: 100%;
   }
 
   .active-foto {
@@ -693,12 +974,14 @@ a {
     box-shadow: rgb(0 0 0 / 0.5) 0 0 0 10000px;
   } */
   .foto-gallery-mobile {
+    height: 100vh;
     display: flex;
     margin-top: -5vh;
     will-change: transform;
     display: flex;
     flex-direction: column;
     padding: calc(var(--index) * 4) 0;
+    margin-bottom: 10px;
   }
 
   .gallery-desktop {
@@ -754,7 +1037,7 @@ a {
   .nav-container {
     justify-content: center;
     width: 90%;
-    gap: calc(var(--index) * 2.5);
+    gap: calc(var(--index) * 2);
     font-size: calc(var(--index) * 1.3);
   }
 
@@ -762,7 +1045,7 @@ a {
     padding: 4rem;
     justify-content: space-between;
     align-items: center;
-    gap: calc(var(--index) * 2);
+    gap: calc(var(--index) * 3);
     margin-left: 0.5vh;
     height: 10vh;
   }

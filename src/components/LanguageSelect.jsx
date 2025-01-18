@@ -1,5 +1,5 @@
 import { useState } from "react";
-import i18next from "../assets/i18.n";
+import i18next from "../utils/i18.n";
 import { CiGlobe } from "react-icons/ci";
 import { FaCaretDown } from "react-icons/fa";
 

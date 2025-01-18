@@ -1,7 +1,48 @@
+export const songs = [
+  {
+    id: 5,
+    artist: "Night Shift Master & Zak Dekel ",
+    title: "Frozen Tears",
+    audio: "/audio/frozen.mp3",
+    artwork: "/images/songs-artworks/frozen-tears.jpg",
+  },
+
+  {
+    id: 3,
+    artist: "Night Shift Master",
+    title: "Future",
+    audio: "/audio/future.mp3",
+    artwork: "/images/songs-artworks/future.jpeg",
+  },
+  {
+    id: 1,
+    artist: "Vlad Violin",
+    title: "Masa",
+    audio: "/audio/masa.mp3",
+    artwork: "/images/songs-artworks/masa.jpg",
+  },
+  {
+    id: 2,
+    artist: "Vlad Violin",
+    title: "Shlemim",
+    audio: "/audio/shlemim.mp3",
+    artwork: "/images/songs-artworks/shlemim.jpg",
+  },
+
+  {
+    id: 4,
+    artist: "Vlad Violin ",
+    title: "Your Love",
+    audio: "/audio/atb.mp3",
+    artwork: "/images/songs-artworks/atb.jpg",
+  },
+];
+
 export const links = [
   { name: "Home", to: "/" },
   { name: "Gallery", to: "/gallery" },
-  { name: "About", to: "/about" },
+  { name: "Music", to: "/music" },
+  // { name: "About", to: "/about" },
   { name: "Contact", to: "/contact" },
 ];
 

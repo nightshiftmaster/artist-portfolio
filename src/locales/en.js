@@ -5,12 +5,13 @@ const en = {
     navs: {
       home: "Home",
       gallery: "Gallery",
+      music: "Music",
       about: "About",
       contact: "Contact",
     },
     headers: {
       home_header: "Vlad Violin",
-      gallery_header: "Music in my soul",
+      gallery_header: "About Me",
       about_header: "About Me",
       contact_header: "Let's keep in touch",
 
