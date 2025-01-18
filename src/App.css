@@ -838,6 +838,7 @@ a {
   }
   .content {
     height: 100vh;
+    overflow-x: hidden;
   }
   .footer {
     padding: 20px;
