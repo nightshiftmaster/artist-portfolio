@@ -42,6 +42,7 @@ const Gallery = () => {
             style={{ width: "100%", height: "60vh" }}
             slides-per-view="1"
             navigation
+            loop
             initial-slide={index}
             injectStyles={[
               `

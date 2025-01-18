@@ -806,7 +806,7 @@ a {
   .slide-image-container {
     position: relative;
     height: 100%;
-    width: 90%;
+    width: 85%;
   }
   .songs-container-bg {
     display: none;
@@ -894,7 +894,7 @@ a {
     /* overflow-x: scroll;
     overflow-y: hidden; */
     height: 100vh;
-    top: 10vh;
+    top: 5vh;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
