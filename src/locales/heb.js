@@ -4,6 +4,7 @@ const heb = {
       home_header: "ולדי כינור",
       gallery_header: "עליי",
       about_header: "עליי",
+      music_header: "מוזיקה שלי",
       contact_header: "בואו נשמור על קשר",
       video: {
         1: "אליעד - Journey (ביצוע כינור)",
@@ -74,6 +75,7 @@ const heb = {
       home: "בית",
       gallery: "גלריה",
       about: "אודות",
+      music: "מוזיקה",
       contact: "צור קשר",
     },
   },

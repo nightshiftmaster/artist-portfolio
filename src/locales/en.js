@@ -14,6 +14,7 @@ const en = {
       gallery_header: "About Me",
       about_header: "About Me",
       contact_header: "Let's keep in touch",
+      music_header: "My Music",
 
       video: videoItems.reduce((acc, item) => {
         acc = { ...acc, ...{ [item.id]: item.name } };

@@ -3,9 +3,11 @@ import SongBar from "../components/SongBar";
 import SongCard from "../components/SongCard";
 import { useDispatch, useSelector } from "react-redux";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
+import { useTranslation } from "react-i18next";
 
 const Music = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
   const handlePlayClick = (song, i, data) => {
@@ -37,7 +39,7 @@ const Music = () => {
             className="music-header logo tracking-in-expand"
             style={{ zIndex: "-1" }}
           >
-            My Music
+            {t(`headers.music_header`)}
           </h1>
           <div className="songs-container-desktop">
             {songs.map((song, i) => {
