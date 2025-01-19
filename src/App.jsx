@@ -16,8 +16,8 @@ function App() {
   return (
     <div className="wrapper">
       <div id="top"></div>
-      <ScrollToTop />
       <Navbar />
+      <ScrollToTop />
       <ScrollDownIcon />
       <div className="content">
         <Routes>
