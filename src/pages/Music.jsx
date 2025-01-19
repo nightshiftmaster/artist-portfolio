@@ -22,7 +22,6 @@ const Music = () => {
     <div
       className="music-container"
       style={{
-        height: "100%",
         marginBottom: "9vh",
       }}
     >
