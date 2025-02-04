@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { IoArrowDownCircleOutline } from "react-icons/io5";
+import { useLocation } from "react-router-dom";
 
 const ScrollDownIcon = () => {
+  const { pathname } = useLocation();
   const [isScrollDownVisible, setIsScrollDownVisible] = useState(true);
 
   useEffect(() => {
@@ -36,7 +38,9 @@ const ScrollDownIcon = () => {
 
   return (
     <IoArrowDownCircleOutline
-      className={`scroll-down ${!isScrollDownVisible ? "hidden" : ""}`}
+      className={`scroll-down ${
+        !isScrollDownVisible || pathname === "/gallery" ? "hidden" : ""
+      }`}
       color="white"
       size={30}
     />

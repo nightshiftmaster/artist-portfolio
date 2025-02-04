@@ -45,12 +45,16 @@
 }
 
 @media only screen and (max-width: 950px) {
+  .contact_header {
+    margin-top: 7vh;
+  }
   .contact_container {
     margin-top: 8vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4vh;
+    gap: 6vh;
+    height: calc(var(--index) * 50);
   }
 
   .contact_items {

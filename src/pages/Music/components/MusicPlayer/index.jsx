@@ -1,5 +1,5 @@
 import styles from "./MusicPlayer.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { IoIosClose } from "react-icons/io";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -14,7 +14,6 @@ import Controls from "./Controls";
 import Player from "./Player";
 import Seekbar from "./Seekbar";
 import Track from "./Track";
-import VolumeBar from "./VolumeBar";
 
 const MusicPlayer = () => {
   const { activeSong, currentSongs, currentIndex, isActive, isPlaying } =
@@ -29,12 +28,12 @@ const MusicPlayer = () => {
   const [shuffle, setShuffle] = useState(false);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   if (currentSongs?.length) dispatch(playPause(true));
-  //   if (isActive && isPlaying) {
-  //     setOpen(true);
-  //   }
-  // }, [currentIndex]);
+  useEffect(() => {
+    if (currentSongs?.length) dispatch(playPause(true));
+    if (isActive && isPlaying) {
+      setOpen(true);
+    }
+  }, [currentIndex]);
 
   const handlePlayPause = () => {
     setOpen(true);
