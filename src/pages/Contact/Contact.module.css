@@ -6,7 +6,6 @@
   align-items: center;
   padding: 3rem;
   justify-content: center;
-  height: 70vh;
 }
 
 .contact {
@@ -49,8 +48,7 @@
   .contact_container {
     display: flex;
     justify-content: center;
-    gap: 8vh;
-    /* height: calc(var(--index) * 55); */
+    justify-content: center;
   }
 
   .contact_items {
