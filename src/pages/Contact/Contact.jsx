@@ -19,13 +19,18 @@ const Contact = () => {
             <div className={styles.contact_items}>
               <div className={styles.contact_item}>
                 <CgPhone size="20" />
-                <a className="text-block__p" href="tel:+972-547-355910">
+                <a
+                  className="text-block__p"
+                  href="tel:+972-547-355910"
+                  target="_blank"
+                >
                   +972-547355910
                 </a>
               </div>
               <div className={styles.contact_item}>
                 <MdEmail size="20" />
                 <a
+                  target="_blank"
                   className="text-block__p"
                   href="mailto:Nightshiftmaster@gmail.com"
                   title="Click to send an email"
@@ -44,7 +49,11 @@ const Contact = () => {
                   alt=""
                 />
 
-                <a className="text-block__p" href="https://wa.me/972547355910">
+                <a
+                  className="text-block__p"
+                  href="https://wa.me/972547355910"
+                  target="_blank"
+                >
                   {t("paragraphs.contact_message_paragraph")}
                 </a>
               </div>
