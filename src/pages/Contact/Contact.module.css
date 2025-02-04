@@ -6,6 +6,8 @@
   align-items: center;
   padding: 3rem;
   justify-content: center;
+  height: calc(var(--index) * 28);
+  gap: 5vh;
 }
 
 .contact {
@@ -46,14 +48,14 @@
 
 @media only screen and (max-width: 950px) {
   .contact_header {
-    margin-top: 7vh;
+    margin-top: 4vh;
   }
   .contact_container {
     margin-top: 8vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 6vh;
+    gap: 2vh;
     height: calc(var(--index) * 50);
   }
 
