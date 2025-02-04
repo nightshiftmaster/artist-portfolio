@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .hero,
 .main_header,
 .gallery > * {
@@ -16,14 +10,6 @@
   top: 22vh;
   left: 35vw;
   z-index: -1;
-}
-
-.hero-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
 }
 
 .main_header {
@@ -182,15 +168,15 @@
     /* gap: calc(var(--index) * 0.1); */
   }
 
+  .gallery {
+    display: none;
+  }
+
   .gallery__item {
     display: flex;
     height: fit-content;
     width: max-content;
     flex-direction: column;
     max-width: calc(var(--index) * 30);
-  }
-
-  .gallery {
-    display: none;
   }
 }
