@@ -23,10 +23,7 @@ const Gallery = () => {
   }, [index]);
 
   return (
-    <div
-      className={styles.photo_gallery}
-      style={{ overflow: isOpen ? "hidden" : "" }}
-    >
+    <div className={styles.photo_gallery}>
       {/* gallery mobile */}
       <div className={styles.foto_gallery_mobile}>
         <div className={styles.description_mobile}>

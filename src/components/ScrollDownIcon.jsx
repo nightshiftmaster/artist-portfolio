@@ -36,11 +36,12 @@ const ScrollDownIcon = () => {
     };
   }, []);
 
+  const isHiddenIcon =
+    !isScrollDownVisible || pathname === "/gallery" || pathname === "/contact";
+
   return (
     <IoArrowDownCircleOutline
-      className={`scroll-down ${
-        !isScrollDownVisible || pathname === "/gallery" ? "hidden" : ""
-      }`}
+      className={`scroll-down ${isHiddenIcon ? "hidden" : ""}`}
       color="white"
       size={30}
     />
