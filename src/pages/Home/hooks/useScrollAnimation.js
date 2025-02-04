@@ -1,3 +1,4 @@
+import styles from "../Home.module.css";
 import { gsap } from "gsap";
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -30,9 +31,14 @@ const useScrollAnimation = () => {
           },
         }
       );
-      const itemsLeft = gsap.utils.toArray(".gallery__left .gallery__item");
+      const itemsLeft = gsap.utils.toArray(`
+        .${styles.gallery__left}
+        .${styles.gallery__item}`);
 
-      const itemsRight = gsap.utils.toArray(".gallery__right .gallery__item");
+      const itemsRight = gsap.utils.toArray(
+        `.${styles.gallery__right} .${styles.gallery__item}`
+      );
+
       itemsLeft.forEach((item) => {
         gsap.fromTo(
           item,
@@ -40,8 +46,7 @@ const useScrollAnimation = () => {
           {
             x: 0,
             opacity: 4,
-            // start: "-850",
-            // end: "-100",
+
             scrollTrigger: { trigger: item, scrub: true },
           }
         );
@@ -50,8 +55,8 @@ const useScrollAnimation = () => {
           { opacity: 4 },
           {
             opacity: 0.2,
-            start: "-150",
-            end: "-10",
+            // start: "-150",
+            // end: "-10",
             scrollTrigger: {
               trigger: item,
               scrub: true,
@@ -67,8 +72,6 @@ const useScrollAnimation = () => {
           {
             x: 0,
             opacity: 4,
-            // start: "-850",
-            // end: "-100",
             scrollTrigger: { trigger: item, scrub: true },
           }
         );
@@ -77,8 +80,6 @@ const useScrollAnimation = () => {
           { opacity: 4 },
           {
             opacity: 0.2,
-            // start: "-850",
-            // end: "-100",
             scrollTrigger: {
               trigger: item,
               scrub: true,
@@ -87,20 +88,17 @@ const useScrollAnimation = () => {
         );
       });
     }
-    const items = document.querySelectorAll(".gallery__item");
+    const items = document.querySelectorAll(`.${styles.gallery__item}`);
 
-    // Функция для отслеживания видимости элементов
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Когда элемент появляется на экране, анимация начинается (движение в центр)
-            entry.target.classList.add("visible");
-            entry.target.classList.remove("reverse");
+            entry.target.classList.add(styles.visible);
+            entry.target.classList.remove(styles.reverse);
           } else {
-            // Когда элемент выходит с экрана, анимация в обратном направлении (движение влево)
-            // entry.target.classList.add("reverse");
-            // entry.target.classList.remove("visible");
+            // entry.target.classList.add(styles.reverse);
+            // entry.target.classList.remove(styles.visible);
           }
         });
       },

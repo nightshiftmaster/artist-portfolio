@@ -1,23 +1,30 @@
 import { Swiper } from "swiper";
+import styles from "../Gallery.module.css";
 import { useEffect, useRef, useState } from "react";
 import { Controller, Mousewheel, Parallax, Pagination } from "swiper/modules";
 
-const SwiperSlider = ({ setIndex, mainClass, items, setOpen, isOpen }) => {
+const SwiperSlider = ({
+  setIndex,
+  mainClass,
+  items,
+  setOpen,
+  isOpen,
+  index,
+}) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const swiperRef = useRef(null);
   useEffect(() => {
-    const sliderBg = new Swiper(".slider_bg", {
+    const sliderBg = new Swiper(`.${styles.slider_bg}`, {
       modules: [Parallax],
       centeredSlides: true,
-      parallax: true,
       spaceBetween: 20,
       slidesPerView: 3.5,
     });
-    const sliderMain = new Swiper(".slider_main", {
+    const sliderMain = new Swiper(`.${styles.slider_main}`, {
       modules: [Mousewheel, Controller, Pagination],
-      freeMode: true,
+      // freeMode: true,
       centeredSlides: true,
-      parallax: true,
+      mousewheel: true,
       controller: { control: sliderBg },
       breakpoints: {
         0: {
@@ -31,17 +38,14 @@ const SwiperSlider = ({ setIndex, mainClass, items, setOpen, isOpen }) => {
       },
     });
 
-    const mobileMain = new Swiper(".slider_mobile", {
+    const mobileMain = new Swiper(`.${styles.slider_mobile}`, {
       modules: [Mousewheel, Controller, Pagination],
       freeMode: true,
-      parallax: true,
       centeredSlides: true,
       controller: { control: sliderBg },
     });
 
     sliderMain.on("slideChange", function () {
-      setActiveIndex(null);
-
       if (typeof setIndex === "undefined") {
         return;
       } else {
@@ -63,18 +67,22 @@ const SwiperSlider = ({ setIndex, mainClass, items, setOpen, isOpen }) => {
     return () => {
       sliderMain.destroy();
     };
-  }, [setIndex, setOpen]);
+  }, [setOpen, setIndex]);
+
+  useEffect(() => {
+    setActiveIndex(null);
+  }, [index]);
 
   return (
-    <div className={`swiper slider ${mainClass}`} ref={swiperRef}>
-      <div className="swiper-wrapper slider__wrapper">
+    <div className={`${mainClass}`} ref={swiperRef}>
+      <div className={`swiper-wrapper ${styles.slider__wrapper}`}>
         {items.map((item, i) => {
           return (
             <div
               key={i}
-              className={`swiper-slide slider__item ${
-                activeIndex === i && mainClass !== "slider_mobile"
-                  ? "opened"
+              className={`swiper-slide ${styles.slider__item} ${
+                activeIndex === i && mainClass !== styles.slider_mobile
+                  ? styles.opened
                   : ""
               }`}
               onClick={() => {
@@ -91,41 +99,13 @@ const SwiperSlider = ({ setIndex, mainClass, items, setOpen, isOpen }) => {
                 });
               }}
             >
-              <div
-                className="slider__img"
-                data-swiper-parallax={i % 2 === 0 ? "20%" : "30%"}
-                style={{
-                  backgroundImage: `url(${item})`,
-                }}
-              ></div>
+              <img
+                className={styles.slider__element}
+                src={item}
+                alt="slider-element"
+              />
             </div>
           );
-          // <div
-          //   key={i}
-          //   className={`swiper-slide slider__item ${
-          //     activeIndex === i ? "opened" : ""
-          //   }`}
-          //   onClick={() => {
-          //     setOpened(!opened);
-          //     setActiveIndex((prev) => {
-          //       if (prev === i) {
-          //         prev = null;
-          //         return prev;
-          //       } else {
-          //         prev = i;
-          //         return prev;
-          //       }
-          //     });
-          //   }}
-          // >
-          //   <div
-          //     className="slider__img"
-          //     data-swiper-parallax={i % 2 === 0 ? "20%" : "30%"}
-          //     style={{
-          //       backgroundImage: `url(${item})`,
-          //     }}
-          //   ></div>
-          // </div>
         })}
       </div>
     </div>

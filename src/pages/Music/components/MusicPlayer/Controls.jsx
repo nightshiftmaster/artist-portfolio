@@ -1,7 +1,8 @@
 import React from "react";
+import styles from "./MusicPlayer.module.css";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
 import {
-  BsArrowRepeat,
+  // BsArrowRepeat,
   BsFillPauseFill,
   BsFillPlayFill,
   BsShuffle,
@@ -19,7 +20,7 @@ const Controls = ({
   handleNextSong,
 }) => {
   return (
-    <div className="player-buttons">
+    <div className={styles.player_buttons}>
       {/* <BsArrowRepeat
         size={30}
         style={{
@@ -61,12 +62,12 @@ const Controls = ({
           onClick={handleNextSong}
         />
       )}
-      <BsShuffle
+      {/* <BsShuffle
         size={20}
         color={shuffle ? "red" : "white"}
         onClick={() => setShuffle((prev) => !prev)}
         className="hidden sm:block cursor-pointer"
-      />
+      /> */}
     </div>
   );
 };

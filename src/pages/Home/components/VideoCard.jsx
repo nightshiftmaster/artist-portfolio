@@ -1,7 +1,8 @@
+import styles from "../Home.module.css";
 import { useTranslation } from "react-i18next";
 import React, { useEffect, useRef } from "react";
 import Player from "@vimeo/player";
-import { playPause } from "../redux/features/playerSlice";
+import { playPause } from "../../../redux/features/playerSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const VideoCard = ({ item }) => {
@@ -26,18 +27,18 @@ const VideoCard = ({ item }) => {
   }, [isPlaying, dispatch]);
 
   return (
-    <div className="video-item gallery__item ">
-      <div className="video-description">
+    <div className={styles.gallery__item}>
+      <div className={styles.video_description}>
         <h2 className="text-block__h">{t(`headers.video.${item.id}`)}</h2>
         <p className="text-block__p">{t(`paragraphs.video.${item.id}`)}</p>
       </div>
 
-      <div className="video">
+      <div className={styles.video}>
         <iframe
           ref={iframeRef}
           title={item.name}
           src={item.url}
-          className="video-file"
+          className={styles.video_file}
           scrolling="no"
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"

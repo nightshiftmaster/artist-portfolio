@@ -41,7 +41,7 @@ const en = {
             musical styles. I am a versatile musician with a distinctive sound and
             style that captivates audiences and contributes to my success as an
             artist.`,
-      contact_message_paragraph: "send message",
+      contact_message_paragraph: "Send message",
       video: videoItems.reduce((acc, item) => {
         acc = { ...acc, ...{ [item.id]: item.description } };
         return acc;

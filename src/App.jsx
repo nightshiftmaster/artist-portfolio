@@ -1,15 +1,15 @@
 import "./App.css";
 import "animate.css";
-import Home from "./pages/Home";
-import Gallery from "./pages/Gallery";
+import Home from "./pages/Home/Home";
+import Gallery from "./pages/Gallery/Gallery";
 import Navbar from "./components/Navbar";
-import Contact from "./pages/Contact";
-import Music from "./pages/Music";
-import About from "./pages/About";
+import Contact from "./pages/Contact/Contact";
+import Music from "./pages/Music/Music";
+import About from "./pages/About/About";
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import MusicPlayer from "./components/MusicPlayer";
+import MusicPlayer from "./pages/Music/components/MusicPlayer";
 import ScrollDownIcon from "./components/ScrollDownIcon";
 
 function App() {

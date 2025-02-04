@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import styles from "./MusicPlayer.module.css";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { IoIosClose } from "react-icons/io";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -8,7 +9,7 @@ import {
   nextSong,
   prevSong,
   playPause,
-} from "../../redux/features/playerSlice";
+} from "../../../../redux/features/playerSlice";
 import Controls from "./Controls";
 import Player from "./Player";
 import Seekbar from "./Seekbar";
@@ -28,12 +29,12 @@ const MusicPlayer = () => {
   const [shuffle, setShuffle] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (currentSongs?.length) dispatch(playPause(true));
-    if (isActive && isPlaying) {
-      setOpen(true);
-    }
-  }, [currentIndex]);
+  // useEffect(() => {
+  //   if (currentSongs?.length) dispatch(playPause(true));
+  //   if (isActive && isPlaying) {
+  //     setOpen(true);
+  //   }
+  // }, [currentIndex]);
 
   const handlePlayPause = () => {
     setOpen(true);
@@ -60,8 +61,8 @@ const MusicPlayer = () => {
 
   return (
     <div
-      className={`player ${isActive && isOpen ? "player-opened" : ""} ${
-        isCollapsed ? "collapsed" : ""
+      className={`${styles.player} ${isActive && isOpen ? styles.opened : ""} ${
+        isCollapsed ? styles.collapsed : ""
       }`}
     >
       {isCollapsed ? (
@@ -103,7 +104,7 @@ const MusicPlayer = () => {
         isActive={isActive}
         activeSong={activeSong}
       />
-      <div className="player-control">
+      <div className={styles.player_control}>
         <Controls
           isPlaying={isPlaying}
           isActive={isActive}
@@ -116,6 +117,7 @@ const MusicPlayer = () => {
           handlePrevSong={handlePrevSong}
           handleNextSong={handleNextSong}
         />
+
         <Seekbar
           value={appTime}
           min="0"
@@ -124,6 +126,14 @@ const MusicPlayer = () => {
           setSeekTime={setSeekTime}
           appTime={appTime}
         />
+        {/* <VolumeBar
+            value={volume}
+            min="0"
+            max="1"
+            onChange={(event) => setVolume(event.target.value)}
+            setVolume={setVolume}
+          /> */}
+
         <Player
           activeSong={activeSong}
           volume={volume}
@@ -136,13 +146,6 @@ const MusicPlayer = () => {
           onLoadedData={(event) => setDuration(event.target.duration)}
         />
       </div>
-      <VolumeBar
-        value={volume}
-        min="0"
-        max="1"
-        onChange={(event) => setVolume(event.target.value)}
-        setVolume={setVolume}
-      />
     </div>
   );
 };

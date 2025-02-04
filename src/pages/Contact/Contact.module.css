@@ -1,0 +1,66 @@
+.contact_container {
+  margin-top: 12vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+  justify-content: center;
+  height: 70vh;
+}
+
+.contact {
+  display: flex;
+  gap: 3vh;
+  width: 50vh;
+  justify-content: center;
+}
+
+.contact_header {
+  font-family: raleway-m;
+  font-size: calc(var(--index) * 3);
+  text-align: center;
+  width: 100vw;
+}
+
+.contact_items {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  padding: 10vh;
+  width: fit-content;
+}
+
+.contact_item {
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+  align-items: center;
+  width: fit-content;
+}
+
+.contacts_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 950px) {
+  .contact_container {
+    display: flex;
+    justify-content: center;
+    gap: 8vh;
+    height: calc(var(--index) * 55);
+    margin-top: 8vh;
+  }
+
+  .contact_items {
+    gap: 4vh;
+  }
+
+  .contacts_block {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+}

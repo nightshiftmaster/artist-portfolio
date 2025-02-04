@@ -1,0 +1,123 @@
+.player.opened {
+  position: fixed;
+  z-index: 3;
+  background: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  height: 15vh;
+  justify-content: space-between;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  align-items: center;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: ease-in-out 0.5s;
+}
+
+.player.collapsed {
+  transition: ease-in-out 0.5s;
+  bottom: -11.6vh;
+}
+
+.player {
+  display: none;
+}
+.player_control {
+  /* flex-1 flex flex-col items-center justify-center */
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+  /* margin-right: 15vw; */
+  /* background-color: green; */
+  position: relative;
+  right: 15vh;
+}
+
+/* flex items-center justify-around md:w-36 lg:w-52 2xl:w-80 */
+
+.player_buttons {
+  margin-left: 30px;
+  margin-top: -7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35vw;
+  height: 2vh;
+  cursor: pointer;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.player_artwork.playing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+  animation: spin 3s linear infinite;
+  overflow: hidden;
+}
+
+.player_artwork.stopped {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+  animation: none; /* Отключение вращения */
+  overflow: hidden;
+}
+.player_title {
+  white-space: nowrap;
+  width: 38vw;
+  /* background-color: red; */
+}
+
+.active_song {
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+}
+
+.song_artist {
+  /* font-size: calc(var(--index) * 1.2); */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: calc(var(--index) * 1.4);
+  color: var(--color-header);
+  margin-bottom: 0.5vh;
+}
+
+@media only screen and (max-width: 950px) {
+  .player_buttons {
+    margin-left: 30px;
+    margin-top: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    height: 1vh;
+    cursor: pointer;
+  }
+
+  .player_control {
+    position: relative;
+    right: calc(var(--index) * 8);
+  }
+}
