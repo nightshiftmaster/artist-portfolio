@@ -50,12 +50,11 @@
     display: flex;
     justify-content: center;
     gap: 8vh;
-    height: calc(var(--index) * 55);
-    margin-top: 8vh;
+    /* height: calc(var(--index) * 55); */
   }
 
   .contact_items {
-    gap: 4vh;
+    gap: 3vh;
   }
 
   .contacts_block {
