@@ -113,7 +113,7 @@
     height: 100%;
   }
   .foto_gallery_mobile {
-    /* height: calc(var(--index) * 55); */
+    height: calc(var(--index) * 55);
     margin-top: 10vh;
     overflow: hidden;
     display: flex;

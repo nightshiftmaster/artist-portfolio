@@ -31,22 +31,9 @@
   opacity: 0.8;
 }
 
-/* @keyframes textGlow {
-  0% {
-    text-shadow: 0 0 2px rgba(238, 228, 218, 0.1);
-  }
-  50% {
-    text-shadow: 0 0 5px rgba(238, 228, 218, 0.2),
-      0 0 10px rgba(255, 248, 220, 0.1), 0 0 15px rgba(255, 255, 240, 0.05);
-  }
-  100% {
-    text-shadow: 0 0 2px rgba(238, 228, 218, 0.1);
-  }
-} */
-
 @keyframes textGlow {
   0% {
-    text-shadow: 1px 1px 10px rgba(238, 228, 218, 0.3); /* Едва заметное свечение */
+    text-shadow: 1px 1px 10px rgba(238, 228, 218, 0.3);
   }
   50% {
     text-shadow: 0 0 20px rgba(238, 228, 218, 0.5),
