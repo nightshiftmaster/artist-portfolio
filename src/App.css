@@ -359,6 +359,7 @@ a {
   .footer {
     padding: 20px;
     margin: 0;
+    margin-top: calc(var(--index) * 5);
   }
   @keyframes bounce {
     0%,
