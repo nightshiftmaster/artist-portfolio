@@ -25,7 +25,13 @@ const Contact = () => {
               </div>
               <div className={styles.contact_item}>
                 <MdEmail size="20" />
-                <p className="text-block__p">Nightshiftmaster@gmail.com</p>
+                <a
+                  className="text-block__p"
+                  href="mailto:Nightshiftmaster@gmail.com"
+                  title="Click to send an email"
+                >
+                  Nightshiftmaster@gmail.com
+                </a>
               </div>
               <div className={styles.contact_item}>
                 <img
