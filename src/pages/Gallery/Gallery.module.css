@@ -2,6 +2,10 @@
   display: none;
 }
 
+.photo-gallery {
+  font-family: raleway-m, sans-serif;
+}
+
 .custom-pagination {
   display: none;
 }

@@ -68,6 +68,10 @@
   left: calc(var(--index) * 4);
 }
 
+.container {
+  padding: 0 10vh;
+}
+
 .gallery {
   display: flex;
   padding: calc(var(--index) * 5) 0;

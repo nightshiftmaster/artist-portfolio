@@ -16,7 +16,7 @@ const Home = () => {
           src="./images/hero3.png"
           alt="main-image"
         />
-        <div className="container fade-in">
+        <div className={`${styles.container} fade-in`}>
           <div data-speed=".75" className={styles.main_header}>
             <h1 className={styles.main_title}>{t("headers.home_header")}</h1>
             <p className={`${styles.main_slogan} puff-in-center`}>
@@ -26,7 +26,7 @@ const Home = () => {
         </div>
       </header>
       <div className="portfolo">
-        <div className="container">
+        <div className={styles.container}>
           <main className={styles.gallery}>
             <div data-speed=".9" className={styles.gallery__left}>
               {videoItems.slice(0, 4).map((item, i) => {

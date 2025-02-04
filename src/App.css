@@ -77,7 +77,7 @@ html {
 
 .wrapper {
   position: relative;
-  height: 100vh;
+  height: 70vh;
 }
 
 .content {
@@ -104,10 +104,6 @@ html {
   position: relative;
   top: 50vh;
   right: 24vw;
-}
-
-.container {
-  padding: 0 10vh;
 }
 
 .text-block {
@@ -180,10 +176,6 @@ html {
 
 .nav-element.active {
   text-decoration: underline;
-}
-
-.photo-gallery {
-  font-family: raleway-m, sans-serif;
 }
 
 .logo {
@@ -332,9 +324,6 @@ a {
   cursor: pointer;
 }
 
-.custom-pagination {
-  display: none;
-}
 @keyframes smoothBounce {
   0%,
   100% {
