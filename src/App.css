@@ -77,13 +77,13 @@ html {
 
 .wrapper {
   position: relative;
-  height: 70vh;
 }
 
 .content {
   position: relative;
   width: 100vw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  overflow: auto;
   /* will-change: transform; */
   display: flex;
   flex-direction: column;
