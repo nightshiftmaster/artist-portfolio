@@ -86,8 +86,11 @@ const SwiperSlider = ({
                   : ""
               }`}
               onClick={() => {
+                if (mainClass === styles.slider_mobile) {
+                  setIndex(i);
+                }
                 setOpen(!isOpen);
-                setIndex(i);
+
                 setActiveIndex((prev) => {
                   if (prev === i) {
                     prev = null;
