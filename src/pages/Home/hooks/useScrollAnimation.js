@@ -7,10 +7,10 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const useScrollAnimation = () => {
   useEffect(() => {
-    ScrollSmoother.create({
-      wrapper: ".wrapper",
-      content: ".content",
-    });
+    // ScrollSmoother.create({
+    //   wrapper: ".wrapper",
+    //   content: ".content",
+    // });
     if (ScrollTrigger.isTouch !== 1) {
       ScrollSmoother.create({
         wrapper: ".wrapper",
