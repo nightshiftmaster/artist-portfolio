@@ -353,7 +353,7 @@ a {
 
 @media only screen and (max-width: 950px) {
   .content {
-    height: 100vh;
+    height: fit-content;
     overflow-x: hidden;
   }
   .footer {

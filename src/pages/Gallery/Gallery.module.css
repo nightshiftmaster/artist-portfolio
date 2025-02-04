@@ -108,7 +108,7 @@
   }
 
   .slider_mobile {
-    overflow: visible;
+    /* overflow: visible; */
     z-index: 10;
     width: 200px;
   }
@@ -118,10 +118,14 @@
   }
   .foto_gallery_mobile {
     margin-top: 10vh;
+    height: fit-content;
     /* overflow: hidden; */
+
     display: flex;
-    will-change: transform;
+    height: 100vh;
+    /* will-change: transform; */
     /* background-color: red; */
+
     display: flex;
     flex-direction: column;
   }
