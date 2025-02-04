@@ -1,5 +1,5 @@
 .contact_container {
-  margin-top: 12vh;
+  margin-top: 15vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 
 .contact {
   display: flex;
-  gap: 3vh;
+  gap: 2vh;
   width: 50vh;
   justify-content: center;
 }
@@ -46,9 +46,11 @@
 
 @media only screen and (max-width: 950px) {
   .contact_container {
+    margin-top: 8vh;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
+    gap: 4vh;
   }
 
   .contact_items {

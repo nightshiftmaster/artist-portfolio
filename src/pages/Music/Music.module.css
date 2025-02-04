@@ -162,4 +162,7 @@
     align-items: center;
     overflow: scroll;
   }
+  .music_container {
+    gap: 2vh;
+  }
 }

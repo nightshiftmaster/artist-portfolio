@@ -28,10 +28,10 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <div id="bottom"></div>
+        <Footer />
       </div>
 
       <MusicPlayer />
-      <Footer />
     </div>
   );
 }
