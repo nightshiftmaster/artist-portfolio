@@ -1,13 +1,20 @@
+import styles from "./MusicPlayer.module.css";
 import React from "react";
+import { useEffect } from "react";
 
-const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
-  // converts the time to format 0:00
+const Seekbar = ({ value, min, max, onInput, setSeekTime, isNewTrack}) => {
   const getTime = (time) =>
     `${Math.floor(time / 60)}:${`0${Math.floor(time % 60)}`.slice(-2)}`;
 
+
+  useEffect(() => {
+    if (isNewTrack) {
+      setSeekTime(0); 
+    }
+  }, [isNewTrack, setSeekTime]);
+
   return (
     <div
-      // className="hidden sm:flex flex-row items-center"
       style={{
         display: "flex",
         flexDirection: "row",
@@ -15,14 +22,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
         gap: "1vh",
       }}
     >
-      {/* <button
-        type="button"
-        onClick={() => setSeekTime(appTime - 5)}
-        className="hidden lg:mr-4 lg:block text-white"
-      >
-        -
-      </button> */}
-      <p className="text-white" style={{ display: "block", width: "30px" }}>
+      <p className={styles.seekBar_time} >
         {value === 0 ? "0:00" : getTime(value)}
       </p>
       <input
@@ -33,16 +33,9 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
         min={min}
         max={max}
         onInput={onInput}
-        className="md:block w-24 md:w-56 2xl:w-96 h-1 mx-4 2xl:mx-6 rounded-lg"
+        className={styles.seekBar_style}
       />
-      <p className="text-white">{max === 0 ? "0:00" : getTime(max)}</p>
-      {/* <button
-        type="button"
-        onClick={() => setSeekTime(appTime + 5)}
-        className="hidden lg:ml-4 lg:block text-white"
-      >
-        +
-      </button> */}
+      <p className={styles.seekBar_time}>{max === 0 ? "0:00" : getTime(max)}</p>
     </div>
   );
 };

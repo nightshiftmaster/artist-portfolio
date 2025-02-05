@@ -1,12 +1,14 @@
 .music_container {
   /* height: 100vh; */
+  flex: 1;
   align-items: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 6vh;
   margin-top: 15vh;
   margin-bottom: 2vh;
-  padding: 1rem;
+
 }
 
 .music_header {
@@ -126,7 +128,7 @@
   justify-content: center;
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 1200px) {
   .song_container {
     display: flex;
     width: 80vw;

@@ -2,18 +2,12 @@ import React from "react";
 import styles from "./MusicPlayer.module.css";
 import { MdSkipNext, MdSkipPrevious } from "react-icons/md";
 import {
-  // BsArrowRepeat,
   BsFillPauseFill,
   BsFillPlayFill,
-  BsShuffle,
 } from "react-icons/bs";
 
 const Controls = ({
   isPlaying,
-  repeat,
-  setRepeat,
-  shuffle,
-  setShuffle,
   currentSongs,
   handlePlayPause,
   handlePrevSong,
@@ -21,53 +15,37 @@ const Controls = ({
 }) => {
   return (
     <div className={styles.player_buttons}>
-      {/* <BsArrowRepeat
-        size={30}
-        style={{
-          display: "block",
-          cursor: "pointer",
-        }}
-        color={repeat ? "red" : "white"}
-        onClick={() => setRepeat((prev) => !prev)}
-        // className="hidden sm:block cursor-pointer"
-      /> */}
       {currentSongs?.length && (
         <MdSkipPrevious
-          size={30}
+         
           color="#FFF"
-          className="cursor-pointer"
+          className={styles.control_icon}
           onClick={handlePrevSong}
         />
       )}
       {isPlaying ? (
         <BsFillPauseFill
-          size={35}
+        
           color="#FFF"
           onClick={handlePlayPause}
-          className="cursor-pointer"
+          className={styles.control_icon}
         />
       ) : (
         <BsFillPlayFill
-          size={35}
+       
           color="#FFF"
           onClick={handlePlayPause}
-          className="cursor-pointer"
+          className={styles.control_icon}
         />
       )}
       {currentSongs?.length && (
         <MdSkipNext
-          size={30}
+          
           color="#FFF"
-          className="cursor-pointer"
+          className={styles.control_icon}
           onClick={handleNextSong}
         />
       )}
-      {/* <BsShuffle
-        size={20}
-        color={shuffle ? "red" : "white"}
-        onClick={() => setShuffle((prev) => !prev)}
-        className="hidden sm:block cursor-pointer"
-      /> */}
     </div>
   );
 };

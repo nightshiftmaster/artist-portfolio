@@ -23,22 +23,29 @@ const MusicPlayer = () => {
   const [duration, setDuration] = useState(0);
   const [seekTime, setSeekTime] = useState(0);
   const [appTime, setAppTime] = useState(0);
-  const [volume, setVolume] = useState(0.3);
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
+  const [isNewTrack, setIsNewTrack] = useState(false);
   const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    if (activeSong) {
+      setIsNewTrack(true);
+      setTimeout(() => setIsNewTrack(false), 100); 
+    }
+  }, [activeSong, currentIndex]);
 
   useEffect(() => {
     if (currentSongs?.length) dispatch(playPause(true));
     if (isActive && isPlaying) {
       setOpen(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
   const handlePlayPause = () => {
-    setOpen(true);
     if (!isActive) return;
-
     isPlaying ? dispatch(playPause(false)) : dispatch(playPause(true));
   };
 
@@ -124,18 +131,13 @@ const MusicPlayer = () => {
           onInput={(event) => setSeekTime(event.target.value)}
           setSeekTime={setSeekTime}
           appTime={appTime}
+          isNewTrack={isNewTrack}
+
         />
-        {/* <VolumeBar
-            value={volume}
-            min="0"
-            max="1"
-            onChange={(event) => setVolume(event.target.value)}
-            setVolume={setVolume}
-          /> */}
+       
 
         <Player
           activeSong={activeSong}
-          volume={volume}
           isPlaying={isPlaying}
           seekTime={seekTime}
           repeat={repeat}
