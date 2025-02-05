@@ -37,7 +37,7 @@ const ScrollDownIcon = () => {
   }, []);
 
   const isHiddenIcon =
-    !isScrollDownVisible || pathname === "/gallery" || pathname === "/contact";
+    !isScrollDownVisible || pathname === "/gallery" || pathname === "/contact" || pathname === "/music";
 
   return (
     <IoArrowDownCircleOutline

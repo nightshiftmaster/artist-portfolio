@@ -145,9 +145,7 @@
     background-color: #272727;
   }
 
-  /* .music_container {
-    height: calc(var(--index) * 55);
-  } */
+
 
   .songs_container_bg {
     display: none;
@@ -167,5 +165,6 @@
   }
   .music_container {
     gap: 2vh;
+    margin-top: 12vh;
   }
 }
