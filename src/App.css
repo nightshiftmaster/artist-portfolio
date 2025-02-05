@@ -127,7 +127,6 @@ html {
 
 .text-block__h {
   font-size: calc(var(--index) * 1.5);
-
   color: var(--color-header);
   margin-bottom: 1.5rem;
 }
@@ -369,6 +368,7 @@ a {
     /* overflow-x: hidden; */
   }
   .footer {
+   
     padding: 20px;
     margin: 0;
   }

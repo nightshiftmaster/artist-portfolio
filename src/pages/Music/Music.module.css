@@ -84,16 +84,16 @@
 }
 
 .song_artist {
-  font-size: calc(var(--index) * 1.2);
+  font-size: calc(var(--index) * 1.3);
   overflow: hidden;
   text-overflow: ellipsis;
   /* font-size: calc(var(--index) * 1.5); */
   color: var(--color-header);
-  margin-bottom: 1vh;
+  margin-bottom:0.3vh;
 }
 
 .song_title {
-  font-size: calc(var(--index) * 0.8);
+  font-size: calc(var(--index));
 }
 
 .play_pause_container {
@@ -112,14 +112,14 @@
 .songbar_image_container {
   width: 100px;
   height: 100%;
-  border-radius: 10px;
+  /* border-radius: 10px; */
 }
 
 .songbar_artwork {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10%;
+  /* border-radius: 10%; */
 }
 .songbar_text_block {
   display: flex;
@@ -136,7 +136,7 @@
     flex-direction: row;
     align-items: center;
     border-radius: 8px;
-    padding: 7px;
+    padding-right: 1.8vh;
     justify-content: space-between;
     gap: 5vw;
     overflow: hidden;

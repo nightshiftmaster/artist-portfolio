@@ -73,36 +73,23 @@ const MusicPlayer = () => {
     >
       {isCollapsed ? (
         <MdKeyboardArrowUp
-          size="35"
-          style={{
-            position: "absolute",
-            top: "0",
-            right: "30",
-          }}
+        className={styles.control_window_collapse}
           onClick={() => setCollapsed(!isCollapsed)}
         />
       ) : (
         <MdKeyboardArrowDown
-          size="35"
-          style={{
-            position: "absolute",
-            top: "0",
-            right: "30",
-          }}
+        className={styles.control_window_collapse}
+
+         
           onClick={() => setCollapsed(!isCollapsed)}
         />
       )}
 
       <IoIosClose
-        size="35"
+        className={styles.control_window_close}
         onClick={() => {
           dispatch(playPause(false));
           setOpen(false);
-        }}
-        style={{
-          position: "absolute",
-          top: "0",
-          right: "0",
         }}
       />
       <Track
