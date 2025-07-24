@@ -118,7 +118,7 @@
     height: 100%;
   }
   .foto_gallery_mobile {
-    margin-top: 10vh;
+    /* margin-top: 10vh; */
     /* height: fit-content; */
     /* overflow: hidden; */
     display: flex;

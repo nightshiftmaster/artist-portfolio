@@ -5,32 +5,33 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "my-vlad-scroll";
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-const useScrollAnimation = () => {
+let smoother = null;
+
+export const useScrollAnimation = () => {
   useEffect(() => {
-    // ScrollSmoother.create({
-    //   wrapper: ".wrapper",
-    //   content: ".content",
-    // });
     if (ScrollTrigger.isTouch !== 1) {
-      ScrollSmoother.create({
+      smoother = ScrollSmoother.create({
         wrapper: ".wrapper",
         content: ".content",
         smooth: 1.5,
         effects: true,
+        // normalizeScroll: true,
       });
+
       gsap.fromTo(
         ".hero-section",
-        { opacity: 4 },
+        { opacity: 1 },
         {
           opacity: 0,
           scrollTrigger: {
             trigger: ".hero-section",
-            start: " center",
-            end: "1300",
+            start: "top center",
+            end: "1300px",
             scrub: true,
           },
         }
       );
+
       const itemsLeft = gsap.utils.toArray(`
         .${styles.gallery__left}
         .${styles.gallery__item}`);
@@ -113,4 +114,4 @@ const useScrollAnimation = () => {
   }, []);
 };
 
-export default useScrollAnimation;
+export const getSmoother = () => smoother;

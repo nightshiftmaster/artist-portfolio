@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { IoIosClose } from "react-icons/io";
 import { useTranslation } from "react-i18next";
 
+
 const files = require.context("/public/images/photos", false);
 
 const items = files

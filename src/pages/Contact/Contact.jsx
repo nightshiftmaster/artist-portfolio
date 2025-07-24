@@ -53,6 +53,7 @@ const Contact = () => {
                   className="text-block__p"
                   href="https://wa.me/972547355910"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   {t("paragraphs.contact_message_paragraph")}
                 </a>

@@ -2,11 +2,25 @@ import styles from "./Home.module.css";
 import { videoItems } from "../../assets/constants";
 import VideoCard from "./components/VideoCard";
 import { useTranslation } from "react-i18next";
-import useScrollAnimation from "./hooks/useScrollAnimation";
+import { useScrollAnimation } from "./hooks/useScrollAnimation";
+import { Link } from "react-router-dom";
+import { useRef } from "react";
+import { getSmoother } from "./hooks/useScrollAnimation";
+import { RxVideo } from "react-icons/rx";
+import { MdOutlineMusicVideo } from "react-icons/md";
 
 const Home = () => {
+  const targetRef = useRef(null);
   const { t } = useTranslation();
+  const smoother = getSmoother();
   useScrollAnimation();
+
+  const scrollToElement = () => {
+    if (targetRef?.current && smoother) {
+      smoother.scrollTo(targetRef.current, true, "top");
+    }
+  };
+
   return (
     <div className="home">
       <div className={styles.home_container}>
@@ -26,7 +40,17 @@ const Home = () => {
             </div>
           </div>
         </header>
-        <div className="portfolio">
+        <div className={`${styles.hero_buttons} fade-in`}>
+          <button className={styles.hero_button} onClick={scrollToElement}>
+            <RxVideo size="20" color="white" />
+            <h2>{t("buttons.watch_videos")}</h2>
+          </button>
+          <Link to="/music" className={styles.hero_button}>
+            <MdOutlineMusicVideo size="19" color="white" />
+            <h2>{t("buttons.listen_music")}</h2>
+          </Link>
+        </div>
+        <div className="portfolio" ref={targetRef}>
           <div className={styles.container}>
             <main className={styles.gallery}>
               <div data-speed=".9" className={styles.gallery__left}>

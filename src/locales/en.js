@@ -2,6 +2,10 @@ import { videoItems } from "../assets/constants";
 
 const en = {
   translation: {
+    buttons: {
+      watch_videos: "Watch Videos",
+      listen_music: "Listen Music",
+    },
     navs: {
       home: "Home",
       gallery: "Gallery",

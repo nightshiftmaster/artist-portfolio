@@ -32,6 +32,11 @@
 }
 
 @font-face {
+  font-family: gveret-levin;
+  src: url(../public/fonts/Gveret-Levin.ttf);
+}
+
+@font-face {
   font-family: raleway-creative;
   src: url(../public/fonts/raleway-regular.woff2);
 }
@@ -111,6 +116,11 @@ html {
   justify-content: space-between;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .header {
   font-size: 10vh;
@@ -234,7 +244,7 @@ p {
   flex-direction: column;
   height: 18vh;
   z-index: 10;
-  width: 100vw;
+  width: 100%;
   background-color: #121212;
   display: flex;
   justify-content: center;
@@ -363,14 +373,14 @@ a {
 
 @media only screen and (max-width: 950px) {
   .content {
+    margin-top: 10vh;
     height: fit-content;
     overflow: hidden;
     /* overflow-x: hidden; */
   }
+
   .footer {
-   
     padding: 20px;
-    margin: 0;
   }
   @keyframes bounce {
     0%,

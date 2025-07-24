@@ -1,7 +1,11 @@
 const heb = {
   translation: {
+    buttons: {
+      watch_videos: "צפה בסרטונים",
+      listen_music: "האזן למוזיקה",
+    },
     headers: {
-      home_header: "ולדי כינור",
+      home_header: "Vlad Violin",
       gallery_header: "עליי",
       about_header: "עליי",
       music_header: "מוזיקה שלי",
@@ -18,7 +22,7 @@ const heb = {
       },
     },
     paragraphs: {
-      home_paragraph: "הכול סביב מוזיקה",
+      home_paragraph: "It's all about music",
       gallery_paragraph: `שלום, שמי ולד. אני מציע שירותי מוזיקה מקצועיים למגוון רחב של אירועים, כולל חתונות, ימי הולדת, מועדונים, ברים, הצעות נישואין ועוד. עם צליל ייחודי ורפרטואר מגוון, אני מתחייב ליצור אווירה בלתי נשכחת עבור האירוע המיוחד שלכם`,
       about_paragraph: `שמי ולד מדבדב, ונולדתי באוקראינה. מגיל צעיר,
               פיתחתי תשוקה למוזיקה, שהחלה בשירה. בגיל

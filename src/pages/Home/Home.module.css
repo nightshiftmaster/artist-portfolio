@@ -12,6 +12,45 @@
   z-index: -1;
 }
 
+.hero_buttons {
+  width: calc(var(--index) * 60);
+  position: absolute;
+  top: 87vh;
+  left: 8vw;
+  display: flex;
+  gap: calc(var(--index) * 4);
+  z-index: 1;
+}
+.hero_button {
+  width: calc(var(--index) * 10);
+  height: calc(var(--index) * 2);
+  background-color: rgba(53, 51, 51, 0.8);
+  border-radius: calc(var(--index) * 1);
+  display: flex;
+  gap: 10px;
+  border: oldlace 0.5px solid;
+  justify-content: center;
+  align-items: center;
+  box-shadow: #545454 2px 2px 40px 1px;
+  cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.hero_button:hover {
+  transform: scale(1.2);
+}
+
+.hero_button h2 {
+  text-wrap: nowrap;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  font-weight: 600;
+
+  letter-spacing: calc(var(--index) * 0.1);
+}
+
 .main_header {
   height: 100vh;
   opacity: 0.8;
@@ -126,6 +165,24 @@
     transition: opacity 0.3s ease-out, transform 0.6s ease-out;
   }
 
+  .hero_buttons {
+    width: auto;
+    position: absolute;
+    top: 80vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero_button {
+    padding: 15px;
+    gap: 12px;
+    width: calc(var(--index) * 15);
+  }
+
+  .hero_button h2 {
+    font-size: calc(var(--index) * 1.1);
+  }
+
   .gallery__item.visible {
     opacity: 1;
     transform: translateX(0);
@@ -139,7 +196,7 @@
   .hero {
     width: calc(var(--index) * 50);
     position: absolute;
-    top: 18vh;
+    top: 10vh;
     left: -15vw;
     z-index: -1;
   }
@@ -148,13 +205,13 @@
     font-size: calc(var(--index) * 7);
     position: absolute;
     width: min-content;
-    bottom: 30vh;
+    bottom: 40vh;
     left: calc(var(--index) * 3);
   }
 
   .main_slogan {
     font-size: calc(var(--index) * 2.5);
-    bottom: 20vh;
+    bottom: 30vh;
     left: 10vh;
   }
   .gallery_mobile {
