@@ -19,6 +19,13 @@ const Home = () => {
     if (targetRef?.current && smoother) {
       smoother.scrollTo(targetRef.current, true, "top");
     }
+    // If smoother is not initialized, fallback to default scroll behavior
+    else if (targetRef?.current) {
+      window.scrollTo({
+        top: targetRef.current.offsetTop,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
