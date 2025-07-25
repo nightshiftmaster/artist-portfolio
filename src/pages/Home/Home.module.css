@@ -166,12 +166,10 @@
   }
 
   .hero_buttons {
-    display: flex;
-    flex-direction: column;
     gap: 20px;
     width: auto;
     position: absolute;
-    top: 70vh;
+    top: 72vh;
     left: 50%;
     transform: translateX(-50%);
   }
